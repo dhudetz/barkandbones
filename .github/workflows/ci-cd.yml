@@ -14,10 +14,18 @@ jobs:
     - name: Set up SSH
       run: |
         mkdir -p ~/.ssh
+        echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        echo "got to here!"
+        ssh-keyscan -H [your-server] >> ~/.ssh/known_hosts
+
+    - name: Set up SSH
+      run: |
+        mkdir -p ~/.ssh
         oasidfjop
         echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -H barkandbones.duckdns.org >> ~/.ssh/known_hosts
+        ssh-keyscan -H www.barkandbones.org >> ~/.ssh/known_hosts
 
     - name: Deploy to Server
-      run: ssh danny@barkandbones.duckdns.org 'cd /var/www/html/barkandbones && git pull'
+      run: ssh danny@www.barkandbones.org 'cd /var/www/html/barkandbones && git pull'
