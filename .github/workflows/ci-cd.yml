@@ -14,14 +14,6 @@ jobs:
     - name: Set up SSH
       run: |
         mkdir -p ~/.ssh
-        echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        echo "got to here!"
-        ssh-keyscan -H [your-server] >> ~/.ssh/known_hosts
-
-    - name: Set up SSH
-      run: |
-        mkdir -p ~/.ssh
         oasidfjop
         echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
