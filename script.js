@@ -6,10 +6,11 @@ function funtime() {
     const h1 = document.querySelector('h1');
     const img = document.querySelector('img');
 
-    const minWidth = 200;
-    var i = minWidth; // Start with the initial width
-    const maxWidth = 300; // Maximum width for the image
-    var direction = true;
+    const minWidth = 250; // Minimum width
+    const maxWidth = 300; // Maximum width
+    const amplitude = (maxWidth - minWidth) / 2; // Amplitude of the sine wave
+    const midWidth = minWidth + amplitude; // Middle width value
+    let angle = 0; // Angle for the sine wave
 
     setInterval(() => {
         // Generate a random color
@@ -18,18 +19,9 @@ function funtime() {
     }, 200);
 
     setInterval(() => {
-        // Increase image width and reset if it exceeds maxWidth
-        img.style.width = i + "px";
-        if (direction)
-            i += 5;
-        else
-            i -= 3;
+        // Calculate the new width using sine wave
+        img.style.width = (midWidth + amplitude * Math.sin(angle)) + "px";
 
-        if (i > maxWidth) {
-            direction = false; // Reset to initial width
-        }
-        else if (i < minWidth) {
-            direction = true;
-        }
+        angle += 0.1; // Increment the angle for the next frame
     }, 10);
 }
