@@ -17,7 +17,7 @@ jobs:
         echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         chmod 700 ~/.ssh
-        ssh-keyscan -H 174.103.170.194 >> ~/.ssh/known_hosts
+        ssh-keyscan -H www.barkandbones.duckdns.org >> ~/.ssh/known_hosts
 
     - name: Deploy to Server
       run: ssh -vvv danny@174.103.170.194 'cd /var/www/html/barkandbones && git pull'
