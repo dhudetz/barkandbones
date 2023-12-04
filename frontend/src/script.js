@@ -25,7 +25,9 @@ function funtime() {
         angle += 0.05; // Increment the angle for the next frame
     }, 10);
 
-    fetch('/api')
+    console.log(config.API_BASE_URL);
+
+    fetch(`${config.API_BASE_URL}/api`)
         .then(response => response.json())
         .then(data => console.log(data));
 }
