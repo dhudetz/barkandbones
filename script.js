@@ -22,6 +22,6 @@ function funtime() {
         // Calculate the new width using sine wave
         img.style.width = (midWidth + amplitude * Math.sin(angle)) + "px";
 
-        angle += 0.1; // Increment the angle for the next frame
+        angle += 1; // Increment the angle for the next frame
     }, 10);
 }
