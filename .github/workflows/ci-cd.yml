@@ -20,4 +20,4 @@ jobs:
         ssh-keyscan -H www.barkandbones.duckdns.org >> ~/.ssh/known_hosts
 
     - name: Deploy to Server
-      run: ssh -vvv danny@www.barkandbones.duckdns.org 'cd /var/www/html/barkandbones && git pull'
+      run: ssh danny@www.barkandbones.duckdns.org 'cd /var/www/html/barkandbones && git pull'
