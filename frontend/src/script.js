@@ -27,7 +27,11 @@ function funtime() {
 
     console.log(config.API_BASE_URL);
 
+    var response = '';
+
     fetch(`${config.API_BASE_URL}/api`)
         .then(response => response.json())
-        .then(data => console.log(data));
+        .then(data => response = data);
+
+    console.log(response);
 }
