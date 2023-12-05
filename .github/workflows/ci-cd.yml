@@ -20,7 +20,7 @@ jobs:
         ssh-keyscan -H www.barkandbones.duckdns.org >> ~/.ssh/known_hosts
 
     - name: Deploy to Server
-      run: ssh danny@www.barkandbones.duckdns.org 'cd /var/www/html/barkandbones && git pull'
+      run: ssh danny@www.barkandbones.duckdns.org "cd /var/www/html/barkandbones && git fetch --all && git reset --hard origin/main"
 
     - name: Update Docker Containers
       run: ssh danny@www.barkandbones.duckdns.org 'cd /var/www/html/barkandbones/backend && docker-compose pull && docker-compose up -d'
