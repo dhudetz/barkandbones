@@ -11,4 +11,4 @@ COPY . .
 EXPOSE 8000
 
 # Run Python's built-in HTTP server on port 8000
-CMD ["python", "-m", "http.server", "8000"]
+CMD ["python", "python-web-server.py"]
