@@ -21,3 +21,6 @@ jobs:
 
     - name: Deploy to Server
       run: ssh danny@www.barkandbones.duckdns.org 'cd /var/www/html/barkandbones && git pull'
+
+    - name: Update Docker Containers
+      run: ssh danny@www.barkandbones.duckdns.org 'cd /var/www/html/barkandbones/backend && docker-compose pull && docker-compose up -d'
