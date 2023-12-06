@@ -29,5 +29,5 @@ function funtime() {
 
     fetch(`${config.API_BASE_URL}/api`)
         .then(response => response.json())
-        .then(data => h1.textContent = `${data.data} : ${data.message}`);
+        .then(data => h1.textContent = `${data.message}`);
 }
