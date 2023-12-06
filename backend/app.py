@@ -1,16 +1,37 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 import openai
-
+import os
 
 
 app = Flask(__name__)
 CORS(app)
 
-# Make sure to set this environment variable in your production environment
-openai.api_key = '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'
+def set_backend_directory():
+    # Get the current working directory
+    current_dir = os.getcwd()
 
+    # Get the name of the last folder in the current path
+    folder_name = os.path.basename(current_dir)
 
+    # Check if the current folder is 'barkandbones'
+    if folder_name == 'barkandbones':
+        # Change directory to './backend'
+        new_dir = os.path.join(current_dir, 'backend')
+        os.chdir(new_dir)
+        print(f"Changed directory to {new_dir}")
+    elif folder_name == 'backend':
+        print("Already in 'backend' directory")
+    else:
+        print(f"Current directory is '{folder_name}', not changing directory")
+
+def get_api_key(filepath):
+    with open(filepath, 'r') as file:
+        return file.readline().strip()
+
+set_backend_directory()
+api_key_path = 'api_key.txt'
+openai.api_key = get_api_key(api_key_path)
 
 @app.route('/api')
 def hello_world():
