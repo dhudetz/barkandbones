@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     funtime();
+    setupEventSource();
 });
 
 function funtime() {
@@ -24,10 +25,19 @@ function funtime() {
 
         angle += 0.05; // Increment the angle for the next frame
     }, 10);
+}
 
-    console.log(`config : ${config.API_BASE_URL}`);
+function setupEventSource() {
+    const h1 = document.querySelector('h1');
+    const eventSource = new EventSource(`${config.API_BASE_URL}/api`);
 
-    fetch(`${config.API_BASE_URL}/api`)
-        .then(response => response.json())
-        .then(data => h1.textContent = `${data.message}`);
+    eventSource.onmessage = (event) => {
+        const parsedData = JSON.parse(event.data);
+        h1.textContent += parsedData.message;
+    };
+
+    eventSource.onerror = (error) => {
+        console.error('EventSource failed:', error);
+        eventSource.close();
+    };
 }
