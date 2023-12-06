@@ -23,4 +23,4 @@ jobs:
       run: ssh danny@www.barkandbones.duckdns.org "cd /var/www/html/barkandbones && git fetch --all && git reset --hard origin/main"
 
     - name: Update Docker Containers
-      run: ssh danny@www.barkandbones.duckdns.org 'cd /var/www/html/barkandbones/backend && docker-compose pull && docker-compose up -d'
+      run: ssh danny@www.barkandbones.duckdns.org 'docker restart backend-web-1'
