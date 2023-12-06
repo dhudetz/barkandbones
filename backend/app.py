@@ -7,7 +7,7 @@ CORS(app)  # Enable CORS for all routes
 
 @app.route('/api')
 def hello_world():
-    return jsonify({"message": "Hello from the backend!"})
+    return jsonify({"message": "more bark for your bone!"})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=5001)
