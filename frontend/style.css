@@ -1,14 +1,76 @@
-body, html {
+/* Root definitions for light mode */
+:root {
+    --primary-color: #333333;
+    --background-color: #ffffff;
+    --link-color: #007bff;
+    --link-hover-color: #0056b3;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #ffffff;
+        --background-color: #121212;
+        --link-color: #009bff;
+        --link-hover-color: #0077d3;
+    }
+}
+
+/* Base HTML and Body Styles */
+html {
+    font-size: 16px; /* Base font size */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
     height: 100%;
     margin: 0;
     display: flex;
-    color: red;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    padding: 5%;
 }
 
+/* Responsive Design for Larger Screens */
+@media (min-width: 768px) {
+    body {
+        padding: 10%;
+    }
+}
+
+/* Image Styles */
 img {
-    width: 200px; /* Initial size */
+    max-width: 100%;
     height: auto;
 }
+
+/* Link Styles */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+/* Button Styles (if needed) */
+button {
+    background-color: var(--link-color);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--link-hover-color);
+}
+
+/* Additional styling can go here */
