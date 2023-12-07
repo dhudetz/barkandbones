@@ -1,4 +1,8 @@
 /* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FFF2dd; /* Set the background color for the entire page */
+}
 body, h1, p, a, nav {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -8,7 +12,7 @@ header {
     display: flex;
     align-items: center;
     background-color: #87CEEB; /* Sky blue background */
-    padding: 10px;
+    padding: 5px;
 }
 
 #logo {
@@ -38,23 +42,24 @@ nav a {
     font-size: 1.5em; /* 50% larger font size */
     transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and transform transitions */
     display: inline-block; /* Allows transform to apply properly */
+    line-height: 1.8em; /* Increase line height for better spacing between wrapped lines */
 }
 
 nav a.active {
-    background-color: #F0E68C; /* Light khaki for the active link */
-    color: #2F4F4F; /* Darker color for active link text */
+    background-color: #f5dfc4; /* Light khaki for the active link */
+    color: #24261f; /* Darker color for active link text */
 }
 
 nav a:hover:not(.active) {
     background-color: #B0E0E6; /* Powder blue for hover */
-    color: #2F4F4F; /* Darker color for hover text */
+    color: #24261f; /* Darker color for hover text */
     transform: scale(1.1); /* More noticeable growth on hover */
 }
 
 /* Style for the content pages */
 .page {
     display: none;
-    background-color: #FFF5EE; /* Very light blonde background for content */
+    background-color: #f5dfc4; /* Very light blonde background for content */
     padding: 20px;
     margin-top: 10px;
     border-radius: 5px;
@@ -66,5 +71,5 @@ nav a:hover:not(.active) {
 
 /* Additional styles for a friendly tone */
 h1 {
-    color: #2F4F4F; /* Darker color for headings */
+    color: #24261f; /* Darker color for headings */
 }
