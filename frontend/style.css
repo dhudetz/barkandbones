@@ -13,6 +13,7 @@ header {
     align-items: center;
     background-color: #87CEEB; /* Sky blue background */
     padding: 5px;
+    border-radius: 20px; /* Rounded corners for the top bar */
 }
 
 #logo {
@@ -42,18 +43,21 @@ nav a {
     font-size: 1.5em; /* 50% larger font size */
     transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and transform transitions */
     display: inline-block; /* Allows transform to apply properly */
+    padding: 0px 10px;
     line-height: 1.8em; /* Increase line height for better spacing between wrapped lines */
 }
 
 nav a.active {
     background-color: #f5dfc4; /* Light khaki for the active link */
     color: #24261f; /* Darker color for active link text */
+    border-radius: 8px;
 }
 
 nav a:hover:not(.active) {
     background-color: #B0E0E6; /* Powder blue for hover */
     color: #24261f; /* Darker color for hover text */
-    transform: scale(1.1); /* More noticeable growth on hover */
+    transform: scale(1.15); /* More noticeable growth on hover */
+    border-radius: 8px;
 }
 
 /* Style for the content pages */
@@ -62,7 +66,7 @@ nav a:hover:not(.active) {
     background-color: #f5dfc4; /* Very light blonde background for content */
     padding: 20px;
     margin-top: 10px;
-    border-radius: 5px;
+    border-radius: 20px; /* Rounded corners for content pages */
 }
 
 .page.active {
