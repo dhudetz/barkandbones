@@ -6,10 +6,34 @@
     <title>Bark & Bones</title>
     <link rel="stylesheet" href="style.css">
     <script src="src/script.js" defer></script>
-    <script src="src/config.js" defer></script>
 </head>
 <body>
-    <h1></h1>
-    <img src="images/logo.png" alt="Bark & Bones Logo">
+    <header>
+        <a href="#" data-page="home" class="nav-link">
+            <img src="images/logo.png" alt="Bark & Bones Logo" id="logo">
+        </a>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="#" data-page="home" class="nav-link active">Home</a></li>
+                <li><a href="#" data-page="about" class="nav-link">About Us</a></li>
+                <li><a href="#" data-page="order" class="nav-link">Order</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="home" class="page active">
+            <h1>Welcome to Bark & Bones</h1>
+            <p>Home Page Content</p>
+        </div>
+        <div id="about" class="page">
+            <h1>About Us</h1>
+            <p>About Page Content</p>
+        </div>
+        <div id="order" class="page">
+            <h1>Order</h1>
+            <p>Order Page Content</p>
+        </div>
+    </main>
 </body>
 </html>

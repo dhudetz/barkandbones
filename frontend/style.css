@@ -1,76 +1,70 @@
-/* Root definitions for light mode */
-:root {
-    --primary-color: #333333;
-    --background-color: #ffffff;
-    --link-color: #007bff;
-    --link-hover-color: #0056b3;
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --primary-color: #ffffff;
-        --background-color: #121212;
-        --link-color: #009bff;
-        --link-hover-color: #0077d3;
-    }
-}
-
-/* Base HTML and Body Styles */
-html {
-    font-size: 16px; /* Base font size */
-}
-
-body {
+/* Global Styles */
+body, h1, p, a, nav {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    height: 100%;
-    margin: 0;
+}
+
+/* Style for the top bar */
+header {
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;
-    color: var(--primary-color);
-    background-color: var(--background-color);
-    padding: 5%;
+    background-color: #87CEEB; /* Sky blue background */
+    padding: 10px;
 }
 
-/* Responsive Design for Larger Screens */
-@media (min-width: 768px) {
-    body {
-        padding: 10%;
-    }
+#logo {
+    height: 135px; /* 35% Larger logo size */
+    margin-right: 20px;
+    transition: transform 0.3s ease; /* Animation for logo */
 }
 
-/* Image Styles */
-img {
-    max-width: 100%;
-    height: auto;
+#logo:hover {
+    transform: scale(1.05); /* Slightly larger on hover */
 }
 
-/* Link Styles */
-a {
-    color: var(--link-color);
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav a {
     text-decoration: none;
-    transition: color 0.3s ease;
+    color: #FFF5EE; /* Very light blonde color for text */
+    font-weight: bold;
+    font-size: 1.5em; /* 50% larger font size */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and transform transitions */
+    display: inline-block; /* Allows transform to apply properly */
 }
 
-a:hover {
-    color: var(--link-hover-color);
+nav a.active {
+    background-color: #F0E68C; /* Light khaki for the active link */
+    color: #2F4F4F; /* Darker color for active link text */
 }
 
-/* Button Styles (if needed) */
-button {
-    background-color: var(--link-color);
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+nav a:hover:not(.active) {
+    background-color: #B0E0E6; /* Powder blue for hover */
+    color: #2F4F4F; /* Darker color for hover text */
+    transform: scale(1.1); /* More noticeable growth on hover */
 }
 
-button:hover {
-    background-color: var(--link-hover-color);
+/* Style for the content pages */
+.page {
+    display: none;
+    background-color: #FFF5EE; /* Very light blonde background for content */
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
 }
 
-/* Additional styling can go here */
+.page.active {
+    display: block;
+}
+
+/* Additional styles for a friendly tone */
+h1 {
+    color: #2F4F4F; /* Darker color for headings */
+}
