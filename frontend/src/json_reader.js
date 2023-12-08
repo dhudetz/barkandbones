@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('content/about_us.json')
         .then(response => response.json())
         .then(data => {
-            document.getElementById('infoParagraph1').textContent = data.info1;
-            document.getElementById('infoParagraph2').textContent = data.info2;
-            document.getElementById('infoParagraph3').textContent = data.info3;
+            document.getElementById('home1').textContent = data.home;
+            document.getElementById('aboutUs1').textContent = data.aboutUs1;
+            document.getElementById('aboutUs2').textContent = data.aboutUs2;
         })
         .catch(error => console.error('Error fetching data:', error));
 });

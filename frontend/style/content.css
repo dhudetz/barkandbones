@@ -18,8 +18,10 @@ p {
     display: flex; /* Use flexbox to center the image within the container */
     justify-content: left; /* Center horizontally */
     align-items: center; /* Center vertically */
-    padding: 0% 10%; /* Add padding inside the div */
-    font-size: 1.3em; /* 50% larger font size */
+    padding-inline: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 1.1em; /* 50% larger font size */
 }
 
 main {
@@ -48,13 +50,14 @@ main {
 
 .image-container {
     display: flex; /* Use flexbox to center the image within the container */
-    justify-content: left; /* Center the image horizontally */
+    justify-content: center; /* Center the image horizontally */
     align-items: center; /* Center the image vertically */
-    margin-bottom: 20px;
     margin-inline: 20px;
-    padding-top: 0px;
+    padding-block: 10px;
+    flex-direction: row;
     overflow: hidden; /* Ensures the content respects the border radius */
 }
+
 
 .image {
     width: 600px;
@@ -64,10 +67,19 @@ main {
     object-fit: contain; /* This will ensure the image aspect ratio is maintained */
 }
 
+.half-image {
+    width: 600px;
+    margin-inline: 5px;
+    max-width: 45%; /* Ensure the image is not wider than the container */
+    max-height: 100%; /* Ensure the image is not taller than the container */
+    border-radius: 25px; /* Rounded corners of the image if you want them */
+    object-fit: contain; /* This will ensure the image aspect ratio is maintained */
+}
+
 /* Additional styles for a friendly tone */
 h1 {
     color: #24261f; /* Darker color for headings */
-    padding-inline: 10px;
+    padding-inline: 20px;
     margin-top: 0.67em;
     margin-bottom: 0px;
 }
