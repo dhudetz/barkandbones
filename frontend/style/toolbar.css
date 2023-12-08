@@ -19,10 +19,6 @@ header {
     transition: transform 0.3s ease; /* Animation for logo */
 }
 
-#logo:hover {
-    transform: scale(1.1); /* Slightly larger on hover */
-}
-
 nav ul {
     list-style-type: none;
     padding-inline: 10px;
@@ -51,8 +47,14 @@ nav a.active {
     color: #24261f; /* Darker color for active link text */
 }
 
-nav a:hover:not(.active) {
-    background-color: #B0E0E6; /* Powder blue for hover */
-    color: #24261f; /* Darker color for hover text */
-    transform: scale(1.15); /* More noticeable growth on hover */
+@media (hover: hover) and (pointer: fine) {
+    #logo:hover {
+        transform: scale(1.1); /* Slightly larger on hover */
+    }
+
+    nav a:hover:not(.active) {
+        background-color: #B0E0E6; /* Powder blue for hover */
+        color: #24261f; /* Darker color for hover text */
+        transform: scale(1.15); /* More noticeable growth on hover */
+    }
 }
