@@ -37,9 +37,9 @@ client = Client(account_sid, auth_token)
 
 def send_email(recipient_email, subject, body):
     # Configure your email server and sender email here
-    sender_email = "your_email@example.com"
-    password = "your_password"
-    server = smtplib.SMTP('smtp.example.com', 587)
+    sender_email = "barkandbones.orders"
+    password = "j34BaR67L9!"
+    server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
     server.login(sender_email, password)
     message = f'Subject: {subject}\n\n{body}'
@@ -52,6 +52,7 @@ def confirm_order(order_id):
         print(order_id)
         email = order_email_dict.get(order_id)
         print(email)
+        print("INFO ABOVE!")
         if email:
             send_email(email, "Order Confirmation", f"Your order {order_id} has been confirmed.")
             return jsonify({"message": "Order confirmed"}), 200
