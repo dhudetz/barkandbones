@@ -1,7 +1,7 @@
 This repo runs the barknbones.org website.
 
 Prod environment:
-1. frontend/config.js  ->  config value set to API_BASE_URL: "http://barknbones.org"
+1. frontend/config.js  ->  config value set to API_BASE_URL: "http://barkandbones.org"
 2. nginx server should be running with proxy to /api for port 5001
     note: change default proxy ports at /etc/nginx/sites-available/default
 3. python backend should be running in a docker container
