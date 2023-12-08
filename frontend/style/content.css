@@ -54,6 +54,7 @@ main {
     margin-inline: 20px;
     padding-block: 10px;
     flex-direction: row;
+    gap: 10px; /* Replace 10px with the desired space */
     overflow: hidden; /* Ensures the content respects the border radius */
 }
 
@@ -68,8 +69,7 @@ main {
 
 .half-image {
     width: 700px;
-    margin-inline: 5px;
-    max-width: 45%; /* Ensure the image is not wider than half the container */
+    max-width: 50%; /* Ensure the image is not wider than half the container */
     max-height: 100%; /* Ensure the image is not taller than the container */
     border-radius: 25px; /* Rounded corners of the image if you want them */
     object-fit: contain; /* This will ensure the image aspect ratio is maintained */
