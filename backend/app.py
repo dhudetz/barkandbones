@@ -7,10 +7,6 @@ from twilio.rest import Client
 app = Flask(__name__)
 CORS(app)
 
-account_sid = 'ACcb8aab937cd40cdb342c3e8246b96b35'
-auth_token = '3f9cfe43257e41283dd5e199e654f737'
-client = Client(account_sid, auth_token)
-
 def set_backend_directory():
     # Get the current working directory
     current_dir = os.getcwd()
@@ -29,7 +25,16 @@ def set_backend_directory():
     else:
         print(f"Current directory is '{folder_name}', not changing directory")
 
+def get_api_key(filepath):
+    with open(filepath, 'r') as file:
+        return file.readline().strip()
+
 set_backend_directory()
+api_key_path = 'api_key.txt'
+auth_token = get_api_key(api_key_path)
+print(auth_token)
+account_sid = 'ACcb8aab937cd40cdb342c3e8246b96b35'
+client = Client(account_sid, auth_token)
 
 app = Flask(__name__)
 CORS(app)
