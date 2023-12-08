@@ -10,7 +10,7 @@ body {
     padding: 0; /* Reset default padding */
 }
 
-body, h1, p, a, nav {
+body, h1, h3, p, a, nav {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -80,4 +80,11 @@ h1 {
     padding-inline: 20px;
     margin-top: 0.67em;
     margin-bottom: 0px;
+}
+
+/* Additional styles for a friendly tone */
+h3 {
+    color: #24261f; /* Darker color for headings */
+    padding-inline: 20px;
+    text-align: center;
 }

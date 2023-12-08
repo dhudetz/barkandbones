@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style/form.css">
     <script src="src/json_reader.js"></script>
     <script src="src/toolbar_switcher.js" defer></script>
+    <script src="src/order_handler.js" defer></script>
 </head>
 <body>
     <header>
@@ -26,13 +27,16 @@
     </header>
 
     <main>
-        <div id="home" class="page active">
+        <div id="home" class="page">
             <h1>Welcome to Bark & Bones</h1>
             <p id="home1"></p>
             <div class="image-container">
                 <img src="images/sarah_bones.jpg" alt="sarah_bones" class="image">
             </div>
+            <h1>Contact</h1>
+            <h3>Text an order or questions to Sarah at 630-854-5157</h3>
         </div>
+        <!-- end of Home page -->
         <div id="about" class="page">
             <h1>About Us</h1>
             <p id="aboutUs1"></p>
@@ -45,28 +49,46 @@
                 <img src="images/family.JPG" alt="family" class="image">
             </div>
             <h1>Contact</h1>
-            <h3>Text an order or questions Sarah at 630-854-5157</h3>
+            <h3>Text an order or questions to Sarah at 630-854-5157</h3>
         </div>
-        <div id="order" class="page">
+        <!-- end of About Us page -->
+        <div id="order" class="page active">
             <h1>Place Your Order</h1>
             <form id="order-form">
-                <label for="product-select">Choose a product:</label>
-                <select id="product-select" name="product">
-                    <option value="">Please select an item</option>
-                    <option value="small-bag">Small Bag of Treats</option>
-                    <option value="medium-bag">Medium Bag of Treats</option>
-                    <option value="large-bag">Large Bag of Treats</option>
-                </select>
-        
+                <label for="order-type">Order Type:</label>
+                <select id="order-type" name="order-type">
+                    <option value="small-treats">Pickup</option>
+                    <option value="large-treats">Delivery</option>
+                </select>      
                 <label for="customer-name">Your Name:</label>
                 <input type="text" id="customer-name" name="customer-name" placeholder="Full Name" required>
         
+                <label for="customer-name">Your Phone Number:</label>
+                <input type="text" id="customer-phone" name="customer-phone" placeholder="000-000-0000" required>
+
                 <label for="order-notes">Special instructions:</label>
                 <textarea id="order-notes" name="order-notes" rows="4" placeholder="Any special requests?"></textarea>
         
+                <label for="product-select">Choose a product:</label>
+                <select id="product-select" name="product">
+                    <option value="">Please select an item</option>
+                    <option value="small-treats">Small Bag of Treats - $6.42</option>
+                    <option value="large-treats">Large Bag of Treats - $8.06</option>
+                </select>
+                <div>
+                    <button type="button" id="add-to-cart">Add to Cart</button>
+                    <button type="button" id="clear-cart">Clear Cart</button>
+                </div>
+                <div id="cart">
+                    <h3>Your Cart</h3>
+                    <ul id="cart-items"></ul>
+                    <p>Total Cost: $<span id="total-cost">0.00</span></p>
+                </div>
                 <input type="submit" value="Submit Order">
+                <!-- end of cart  -->
             </form>
-        </div>
+        </div> 
+        <!-- end of Order page -->
     </main>
 </body>
 </html>

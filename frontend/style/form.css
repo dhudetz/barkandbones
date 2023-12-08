@@ -26,8 +26,8 @@
     width: auto;
     padding: 10px 20px;
     margin-top: 15px;
-    background-color: #87CEEB; /* Sky blue background */
-    color: #FFF5EE; /* Very light blonde color for text */
+    background-color: #63bfe4; /* Sky blue background */
+    color: #ffffff; /* Very light blonde color for text */
     font-weight: bold;
     border: none;
     border-radius: 8px;
@@ -37,4 +37,41 @@
 
 #order-form input[type=submit]:hover {
     background-color: #B0E0E6; /* Lighter blue for hover */
+}
+
+#cart {
+    margin-top: 20px;
+}
+
+#cart-items {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#add-to-cart {
+    margin-top: 10px;
+    padding: 5px 15px;
+    background-color: #63bfe4; /* Sky blue background */
+    color: #ffffff; /* Very light blonde color for text */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#add-to-cart:hover {
+    background-color: #B0E0E6; /* Lighter blue for hover */
+}
+
+#clear-cart {
+    margin-top: 10px;
+    padding: 5px 15px;
+    background-color: #d3cccc; /* Sky blue background */
+    color: #24261f; /* Very light blonde color for text */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#clear-cart:hover {
+    background-color: #b3b3ad; /* Lighter blue for hover */
 }
