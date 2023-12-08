@@ -1,11 +1,14 @@
 from flask import Flask, jsonify, request, Response
 from flask_cors import CORS
 import os
-import json
+from threading import Lock
 from twilio.rest import Client
 
 app = Flask(__name__)
 CORS(app)
+
+# Initialize a lock
+processing_lock = Lock()
 
 def set_backend_directory():
     # Get the current working directory
@@ -41,14 +44,10 @@ CORS(app)
 
 @app.route('/api/order', methods=['POST'])
 def receive_order():
-    # Get JSON data from the request body
-    order_data = request.get_json()
-
-    # You can now process or store the order_data as needed
-    process_order(order_data)
-
-    # Send a confirmation response back to the frontend
-    return jsonify({"message": "Order received successfully"}), 200
+    with processing_lock:
+        order_data = request.get_json()
+        process_order(order_data)
+        return jsonify({"message": "Order received successfully"}), 200
 
 def process_order(order_data):
     text_message = generate_order_message(order_data)
@@ -56,12 +55,11 @@ def process_order(order_data):
     send_info_text(text_message, phone_number)
 
 def send_info_text(message, number):
-    message_response = client.messages.create(
+    client.messages.create(
         from_ = '+18552044131',
         body = message,
         to = number
     )
-    print(message_response.sid)
 
 def generate_order_message(order_data):
     # Group items by name and count the quantities
@@ -94,9 +92,6 @@ def generate_order_message(order_data):
 
     # Return the message in case you need it as a return value
     return message
-
-
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=5001)

@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     let cart = [];
+    let submitting = false;
 
     function updateCart() {
         // Clear the current items list
@@ -83,6 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
             orderItems: cart
         };
         
+        // Set flag to prevent overlapping submit calls
+        submitting = true;
+
         // Send the order data to the server
         fetch(`${config.API_BASE_URL}/api/order`, {
             method: 'POST',
@@ -97,17 +101,26 @@ document.addEventListener('DOMContentLoaded', () => {
             cart = []; // Clear the cart array
             updateCart(); // Update the cart display
             orderForm.reset(); // Reset the form
+            submitting = false;
         })
         .catch(error => {
             console.error('Error:', error);
             alert('There was an error submitting your order.');
+            submitting = false;
         });
     }
 
     // Event listener for form submission
     orderForm.addEventListener('submit', (event) => {
         event.preventDefault(); // Prevent the default form submission
-        submitOrder();
+        if(cart.length == 0){
+            alert('Please select at least one item. You can\'t buy nothing!');
+            return;
+        }
+        if (submitting)
+            alert('Multiple submissions at once is not permitted!')
+        else
+            submitOrder();
     });
 
     clearCartButton.addEventListener('click', () => {
