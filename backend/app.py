@@ -49,7 +49,9 @@ def send_email(recipient_email, subject, body):
 @app.route('/api/order-confirm/<order_id>', methods=['GET'])
 def confirm_order(order_id):
     with confirm_lock:
+        print(order_id)
         email = order_email_dict.get(order_id)
+        print(email)
         if email:
             send_email(email, "Order Confirmation", f"Your order {order_id} has been confirmed.")
             return jsonify({"message": "Order confirmed"}), 200
