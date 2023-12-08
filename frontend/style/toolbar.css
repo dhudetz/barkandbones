@@ -1,11 +1,17 @@
 /* Style for the top bar */
 header {
     display: flex;
-    align-items: center;
+    flex-direction: row; /* Elements aligned in a row */
+    justify-content: left; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
     background-color: #87CEEB; /* Sky blue background */
-    padding: 5px;
+    padding: 5px 14px;
     border-radius: 20px; /* Rounded corners for the top bar */
+    width: 100%; /* Full width of the container */
+    max-width: 1300px; /* Maximum width of the header */
+    margin: 0 auto; /* Center the header if it's less than 100% of the screen width */
 }
+
 
 #logo {
     height: 135px; /* 35% Larger logo size */

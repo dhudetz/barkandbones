@@ -3,34 +3,53 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #FFF2dd; /* Set the background color for the entire page */
 }
+
 body, h1, p, a, nav {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Style for the content pages */
+p {
+    display: flex; /* Use flexbox to center the image within the container */
+    justify-content: left; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    padding: 15px 10%; /* Add padding inside the div */
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
 .page {
-    display: none;
-    background-color: #f5dfc4; /* Very light blonde background for content */
+    display: none; /* Set .page as a flex container */
+    justify-content: center; /* Centers children elements horizontally within the flex container */
+    align-items: center;
+    width: 100%;
+    max-width: 1300px;
+    background-color: #f5dfc4;
     padding: 20px;
     margin-top: 10px;
-    border-radius: 20px; /* Rounded corners for content pages */
+    border-radius: 20px;
+    flex-direction: column;
 }
 
 .page.active {
-    display: block;
+    display: flex; /* Ensure that active pages are also displayed as flex containers */
 }
 
 .image-container {
     display: flex; /* Use flexbox to center the image within the container */
-    justify-content: center; /* Center the image horizontally */
+    justify-content: left; /* Center the image horizontally */
     align-items: center; /* Center the image vertically */
     padding: 0px 10%; /* Add padding inside the div */
     border-radius: 20px; /* Rounded corners of the div */
     overflow: hidden; /* Ensures the content respects the border radius */
-    /* Add other styling as needed, for example, a border or a background color */
 }
 
 .image {
+    width: 400px;
     max-width: 100%; /* Ensure the image is not wider than the container */
     max-height: 100%; /* Ensure the image is not taller than the container */
     border-radius: 15px; /* Rounded corners of the image if you want them */

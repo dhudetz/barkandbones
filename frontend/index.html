@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bark & Bones</title>
-    <link rel="stylesheet" href="style/website.css">
+    <link rel="stylesheet" href="style/toolbar.css">
     <link rel="stylesheet" href="style/content.css">
-    <script src="src/script.js" defer></script>
+    <script src="src/json_reader.js"></script>
+    <script src="src/toolbar_switcher.js" defer></script>
 </head>
 <body>
     <header>
@@ -27,12 +28,17 @@
             <h1>Welcome to Bark & Bones</h1>
             <p>Dog bones are freshly frozen.  Refrigeration is recommended for longer shelf life.  No preservatives.</p>
             <div class="image-container">
-                <img src="images/sarah_bones.jpg" alt="Sarah Picture" id="sarah" class="image">
+                <img src="images/sarah_bones.jpg" alt="sarah_bones" class="image">
             </div>
         </div>
         <div id="about" class="page">
             <h1>About Us</h1>
-            <p>About Page Content</p>
+            <p id="infoParagraph1"></p>
+            <div class="image-container">
+                <img src="images/charlie3.jpeg" alt="chalie3" class="image">
+            </div>
+            <p id="infoParagraph2"></p>
+            <p id="infoParagraph3"></p>
         </div>
         <div id="order" class="page">
             <h1>Order</h1>
