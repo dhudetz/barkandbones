@@ -9,6 +9,8 @@ CORS(app)
 
 # Initialize a lock
 processing_lock = Lock()
+confirm_lock = Lock()
+deny_lock = Lock()
 
 def set_backend_directory():
     # Get the current working directory
@@ -41,6 +43,20 @@ client = Client(account_sid, auth_token)
 
 app = Flask(__name__)
 CORS(app)
+
+@app.route('/api/order-deny', methods=['POST'])
+def deny_order():
+    with confirm_lock:
+        order_data = request.get_json()
+        process_order(order_data)
+        return jsonify({"message": "Order received successfully"}), 200
+
+@app.route('/api/order-confirm', methods=['POST'])
+def confirm_order():
+    with deny_lock:
+        order_data = request.get_json()
+        process_order(order_data)
+        return jsonify({"message": "Order received successfully"}), 200
 
 @app.route('/api/order', methods=['POST'])
 def receive_order():

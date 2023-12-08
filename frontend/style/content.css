@@ -19,6 +19,7 @@ p {
     justify-content: left; /* Center horizontally */
     align-items: center; /* Center vertically */
     padding-inline: 20px;
+    margin-top: 0px;
     font-size: 1.1em; /* 50% larger font size */
 }
 
@@ -79,12 +80,19 @@ h1 {
     color: #24261f; /* Darker color for headings */
     padding-inline: 20px;
     margin-top: 0.67em;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
 }
 
 /* Additional styles for a friendly tone */
 h3 {
     color: #24261f; /* Darker color for headings */
     padding-inline: 20px;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
     text-align: center;
+    margin-bottom: 5px;
+}
+
+h3.contact-info {
+    margin-bottom: 20px;
 }

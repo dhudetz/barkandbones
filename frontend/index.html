@@ -30,30 +30,45 @@
     <main>
         <div id="home" class="page active">
             <h1>Welcome to Bark & Bones</h1>
-            <p id="home1"></p>
+            <p id="home1" class="json"></p>
             <div class="image-container">
-                <img src="images/sarah_bones.jpg" alt="sarah_bones" class="image">
+                <img src="images/sarah_bones.jpg" class="image">
             </div>
+            <h3>Bag of small dog treats:</h3>
+            <p id="home3" class="json"></p>
+            <div id="small-bones-images" class="image-container">
+                <img src="images/small_bag.jpeg" class="half-image">
+                <img src="images/small_bone.jpeg" class="half-image">
+            </div>
+            <h3>Bag of large dog treats:</h3>
+            <p id="home4" class="json"></p>
+            <div id="large-bones-images" class="image-container">
+                <img src="images/large_bag.jpeg" class="half-image">
+                <img src="images/large_bone2.jpeg" class="half-image">
+            </div>
+            <p id="home2" class="json"></p>
+            <h3 class="contact-info">Text any questions to Sarah at 630-854-5157</h3>
         </div>
         <!-- end of Home page -->
         <div id="about" class="page">
             <h1>About Us</h1>
-            <p id="aboutUs1"></p>
+            <p id="aboutUs1" class="json"></p>
             <div class="image-container">
-                <img src="images/charlie3.jpeg" alt="chalie3" class="half-image">
-                <img src="images/sarah_profile.jpeg" alt="chalie3" class="half-image">
+                <img src="images/charlie3.jpeg" class="half-image">
+                <img src="images/sarah_profile.jpeg" class="half-image">
             </div>
-            <p id="aboutUs2"></p>
+            <p id="aboutUs2" class="json"></p>
             <div class="image-container">
-                <img src="images/family.JPG" alt="family" class="image">
+                <img src="images/family.JPG" class="image">
             </div>
-            <h1>Contact</h1>
-            <h3>Text an order or questions to Sarah at 630-854-5157</h3>
+            <h3 class="contact-info">Text any questions to Sarah at 630-854-5157</h3>
         </div>
         <!-- end of About Us page -->
         <div id="order" class="page">
             <h1>Place Your Order</h1>
             <form id="order-form">
+                <p id="orderPageInfo1" class="json"></p>
+                <p id="orderPageInfo2" class="json"></p>
                 <label for="order-type">Order Type:</label>
                 <select id="order-type" name="order-type">
                     <option value="pickup">Pickup</option>
@@ -74,8 +89,8 @@
                 <label for="product-select">Choose a product:</label>
                 <select id="product-select" name="product">
                     <option value="">Please select an item</option>
-                    <option value="small-treats">Small Bag of Treats - $6.42</option>
-                    <option value="large-treats">Large Bag of Treats - $8.06</option>
+                    <option value="small-treats">Bag of 25 Small Treats - $10.00</option>
+                    <option value="large-treats">Bag of 20 Large Treats - $10.00</option>
                 </select>
                 <div>
                     <button type="button" id="add-to-cart">Add to Cart</button>

@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const productSelect = document.getElementById('product-select');
 
     const prices = {
-        'small-treats': 6.42,
-        'large-treats': 8.06
+        'small-treats': 10.00,
+        'large-treats': 10.00
     };
 
     let cart = [];

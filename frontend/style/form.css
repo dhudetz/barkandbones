@@ -8,6 +8,13 @@
     max-width: 90%; /* Ensure the image is not wider than half the container */
     margin: 0 auto; /* Center form in the page */
     padding: 20px;
+    padding-top: 0px;
+}
+
+#order-form p {
+    width: 100%; /* Full width of the form */
+    margin-inline: 0%;
+    padding-inline: 0%;
 }
 
 #order-form label {
