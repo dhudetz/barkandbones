@@ -20,7 +20,7 @@ jobs:
         ssh-keyscan -H www.barknbones.org >> ~/.ssh/known_hosts
 
     - name: Deploy to Server
-      run: ssh danny@www.barknbones.org "cd /var/www/html/barkandbones && git fetch --all && git reset --hard origin/main"
+      run: ssh danny@www.barkandbones.org "cd /var/www/html/barkandbones && git fetch --all && git reset --hard origin/main"
 
     - name: Update Docker Containers
-      run: ssh danny@www.barknbones.org 'cd /var/www/html/barkandbones/backend && docker-compose pull && docker-compose up -d --build'
+      run: ssh danny@www.barkandbones.org 'cd /var/www/html/barkandbones/backend && docker-compose pull && docker-compose up -d --build'
