@@ -49,26 +49,32 @@ def send_email(recipient_email, subject, body):
 @app.route('/api/order-confirm/<order_id>', methods=['GET'])
 def confirm_order(order_id):
     with confirm_lock:
-        current_app.logger.info(f"Order ID: {order_id}")
-        email = order_email_dict.get(order_id)
-        current_app.logger.info(f"Email: {email}")
-        
-        if email:
-            send_email(email, "Order Confirmation", f"Your order {order_id} has been confirmed.")
-            return jsonify({"message": "Order confirmed"}), 200
-        else:
-            current_app.logger.error("Order ID not found")
-            return jsonify({"error": "Order ID not found"}), 404
+        try:
+            order_id_int = int(order_id)
+            email = order_email_dict.get(order_id_int)
+            if email:
+                send_email(email, "Order Confirmation", f"Your order {order_id} has been confirmed.")
+                return jsonify({"message": "Order confirmed"}), 200
+            else:
+                return jsonify({"error": "Order ID not found"}), 404
+        except ValueError:
+            # Handle case where order_id is not an integer
+            return jsonify({"error": "Invalid Order ID"}), 400
 
 @app.route('/api/order-deny/<order_id>', methods=['GET'])
 def deny_order(order_id):
     with deny_lock:
-        email = order_email_dict.get(order_id)
-        if email:
-            send_email(email, "Order Denied", f"Your order {order_id} has been denied.")
-            return jsonify({"message": "Order denied"}), 200
-        else:
-            return jsonify({"error": "Order ID not found"}), 404
+        try:
+            order_id_int = int(order_id)
+            email = order_email_dict.get(order_id_int)
+            if email:
+                send_email(email, "Order Denied", f"Your order {order_id} has been denied.")
+                return jsonify({"message": "Order denied"}), 200
+            else:
+                return jsonify({"error": "Order ID not found"}), 404
+        except ValueError:
+            # Handle case where order_id is not an integer
+            return jsonify({"error": "Invalid Order ID"}), 400
 
 @app.route('/api/order', methods=['POST'])
 def receive_order():
