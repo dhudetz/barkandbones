@@ -48,6 +48,15 @@ main {
     display: flex; /* Ensure that active pages are also displayed as flex containers */
 }
 
+.content-container{
+    display: flex; /* Use flexbox to center the image within the container */
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    flex-direction: column;
+    gap: 10px; /* Replace 10px with the desired space */
+    overflow: hidden; /* Ensures the content respects the border radius */
+}
+
 .image-container {
     display: flex; /* Use flexbox to center the image within the container */
     justify-content: center; /* Center the image horizontally */
