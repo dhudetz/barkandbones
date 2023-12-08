@@ -20,6 +20,7 @@ p {
     align-items: center; /* Center vertically */
     padding-inline: 20px;
     margin-top: 0px;
+    margin-bottom: 5px;
     font-size: 1.1em; /* 50% larger font size */
 }
 
