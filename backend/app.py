@@ -46,9 +46,8 @@ def send_email(recipient_email, subject, body):
     server.sendmail(sender_email, recipient_email, message)
     server.quit()
 
-@app.route('/api/order-confirm', methods=['POST'])
-def confirm_order():
-    order_id = request.json['order_id']
+@app.route('/api/order-confirm/<order_id>', methods=['GET'])
+def confirm_order(order_id):
     with confirm_lock:
         email = order_email_dict.get(order_id)
         if email:
@@ -57,9 +56,8 @@ def confirm_order():
         else:
             return jsonify({"error": "Order ID not found"}), 404
 
-@app.route('/api/order-deny', methods=['POST'])
-def deny_order():
-    order_id = request.json['order_id']
+@app.route('/api/order-deny/<order_id>', methods=['GET'])
+def deny_order(order_id):
     with deny_lock:
         email = order_email_dict.get(order_id)
         if email:
