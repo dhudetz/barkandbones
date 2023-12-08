@@ -17,7 +17,7 @@ jobs:
         echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         chmod 700 ~/.ssh
-        ssh-keyscan -H www.barknbones.org >> ~/.ssh/known_hosts
+        ssh-keyscan -H www.barkandbones.org >> ~/.ssh/known_hosts
 
     - name: Deploy to Server
       run: ssh danny@www.barkandbones.org "cd /var/www/html/barkandbones && git fetch --all && git reset --hard origin/main"
