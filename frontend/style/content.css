@@ -1,7 +1,13 @@
-/* Global Styles */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: top; /* Align content to the top */
+    align-items: center; /* Center content horizontally */
+    max-width: 1360px; /* Maximum width of the body */
+    width: calc(100% - 40px); /* Adjust width based on desired horizontal margins */
+    margin: 0px auto; /* 20px margin at the top and bottom, auto for left and right */
     background-color: #FFF2dd; /* Set the background color for the entire page */
+    padding: 0; /* Reset default padding */
 }
 
 body, h1, p, a, nav {
@@ -10,27 +16,28 @@ body, h1, p, a, nav {
 
 p {
     display: flex; /* Use flexbox to center the image within the container */
-    justify-content: left; /* Center the image horizontally */
-    align-items: center; /* Center the image vertically */
-    padding: 15px 10%; /* Add padding inside the div */
+    justify-content: left; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 0% 10%; /* Add padding inside the div */
+    font-size: 1.3em; /* 50% larger font size */
 }
 
 main {
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
-    width: 100%;
 }
 
 .page {
     display: none; /* Set .page as a flex container */
     justify-content: center; /* Centers children elements horizontally within the flex container */
     align-items: center;
-    width: 100%;
-    max-width: 1300px;
     background-color: #f5dfc4;
-    padding: 20px;
-    margin-top: 10px;
+    width: 100%;
+    padding-top: 10px;
+    margin: 20px;
+    margin-top: 0px;
     border-radius: 20px;
     flex-direction: column;
 }
@@ -43,22 +50,24 @@ main {
     display: flex; /* Use flexbox to center the image within the container */
     justify-content: left; /* Center the image horizontally */
     align-items: center; /* Center the image vertically */
-    padding: 0px 10%; /* Add padding inside the div */
-    border-radius: 20px; /* Rounded corners of the div */
+    margin-bottom: 20px;
+    margin-inline: 20px;
+    padding-top: 0px;
     overflow: hidden; /* Ensures the content respects the border radius */
 }
 
 .image {
-    width: 400px;
+    width: 600px;
     max-width: 100%; /* Ensure the image is not wider than the container */
     max-height: 100%; /* Ensure the image is not taller than the container */
-    border-radius: 15px; /* Rounded corners of the image if you want them */
-    /* If you want the image to maintain its aspect ratio */
+    border-radius: 25px; /* Rounded corners of the image if you want them */
     object-fit: contain; /* This will ensure the image aspect ratio is maintained */
 }
 
 /* Additional styles for a friendly tone */
 h1 {
     color: #24261f; /* Darker color for headings */
-    text-align: center;
+    padding-inline: 10px;
+    margin-top: 0.67em;
+    margin-bottom: 0px;
 }

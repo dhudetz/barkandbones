@@ -5,16 +5,15 @@ header {
     justify-content: left; /* Center content horizontally */
     align-items: center; /* Center content vertically */
     background-color: #87CEEB; /* Sky blue background */
-    padding: 5px 14px;
     border-radius: 20px; /* Rounded corners for the top bar */
     width: 100%; /* Full width of the container */
-    max-width: 1300px; /* Maximum width of the header */
-    margin: 0 auto; /* Center the header if it's less than 100% of the screen width */
+    margin: 20px;
 }
 
 
 #logo {
-    height: 135px; /* 35% Larger logo size */
+    height: 145px; /* 35% Larger logo size */
+    padding: 10px;
     margin-right: 20px;
     transition: transform 0.3s ease; /* Animation for logo */
 }
@@ -40,8 +39,8 @@ nav a {
     font-size: 1.5em; /* 50% larger font size */
     transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and transform transitions */
     display: inline-block; /* Allows transform to apply properly */
-    padding: 0px 10px;
-    line-height: 1.8em; /* Increase line height for better spacing between wrapped lines */
+    padding: 5px 15px;
+    line-height: 1.5em; /* Increase line height for better spacing between wrapped lines */
     border-radius: 8px;
 }
 
