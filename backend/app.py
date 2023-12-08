@@ -1,12 +1,15 @@
-from flask import Flask, jsonify, Response
+from flask import Flask, jsonify, request, Response
 from flask_cors import CORS
-import openai
 import os
 import json
-
+from twilio.rest import Client
 
 app = Flask(__name__)
 CORS(app)
+
+account_sid = 'ACcb8aab937cd40cdb342c3e8246b96b35'
+auth_token = '3f9cfe43257e41283dd5e199e654f737'
+client = Client(account_sid, auth_token)
 
 def set_backend_directory():
     # Get the current working directory
@@ -26,35 +29,69 @@ def set_backend_directory():
     else:
         print(f"Current directory is '{folder_name}', not changing directory")
 
-def get_api_key(filepath):
-    with open(filepath, 'r') as file:
-        return file.readline().strip()
-
 set_backend_directory()
-api_key_path = 'api_key.txt'
-openai.api_key = get_api_key(api_key_path)
 
 app = Flask(__name__)
 CORS(app)
 
-def generate_stream():
-    stream = openai.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": "You are a helpful assistant who runs the Bark and Bones website. The owner is Sarah Hudetz."},
-            {"role": "user", "content": "I want to make an order."},
-        ],
-        stream=True,
-    )
-    for chunk in stream:
-        if chunk.choices[0].delta.content is not None:
-            message = json.dumps({"message": chunk.choices[0].delta.content})
-            yield f"data: {message}\n\n"
+@app.route('/api/order', methods=['POST'])
+def receive_order():
+    # Get JSON data from the request body
+    order_data = request.get_json()
 
-@app.route('/api')
-def stream_response():
-    return Response(generate_stream(), mimetype='text/event-stream',
-                    headers={'Cache-Control': 'no-cache', 'Connection': 'keep-alive'})
+    # You can now process or store the order_data as needed
+    process_order(order_data)
+
+    # Send a confirmation response back to the frontend
+    return jsonify({"message": "Order received successfully"}), 200
+
+def process_order(order_data):
+    text_message = generate_order_message(order_data)
+    phone_number = '+17084463055'
+    send_info_text(text_message, phone_number)
+
+def send_info_text(message, number):
+    message_response = client.messages.create(
+        from_ = '+18552044131',
+        body = message,
+        to = number
+    )
+    print(message_response.sid)
+
+def generate_order_message(order_data):
+    # Group items by name and count the quantities
+    item_counts = {}
+    total_cost = 0
+    for item in order_data['orderItems']:
+        if item['name'] not in item_counts:
+            item_counts[item['name']] = 0
+        item_counts[item['name']] += 1
+        total_cost += item['price']
+
+    # Construct the items string
+    items_string = "\n".join(f"{count}x {name}" for name, count in item_counts.items())
+
+    # Construct the message
+    message = (
+    "NEW ORDER!\n\n"
+        f"{order_data['customerName']}\n"
+        f"{order_data['phoneNumber']}\n"
+        f"{order_data['email']}\n\n"
+        f"{items_string}\n\n"
+        f"Total: ${total_cost:.2f}\n\n"
+        f"Message: {order_data['specialInstructions']}\n\n"
+        "<hyperlink>Accept Order\n\n"
+        "<hyperlink>Reject Order"
+    )
+
+    # For demonstration purposes, we just print the message
+    print(message)
+
+    # Return the message in case you need it as a return value
+    return message
+
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=5001)

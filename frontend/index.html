@@ -11,6 +11,7 @@
     <script src="src/json_reader.js"></script>
     <script src="src/toolbar_switcher.js" defer></script>
     <script src="src/order_handler.js" defer></script>
+    <script src="src/config.js" defer></script>
 </head>
 <body>
     <header>
@@ -27,14 +28,12 @@
     </header>
 
     <main>
-        <div id="home" class="page">
+        <div id="home" class="page active">
             <h1>Welcome to Bark & Bones</h1>
             <p id="home1"></p>
             <div class="image-container">
                 <img src="images/sarah_bones.jpg" alt="sarah_bones" class="image">
             </div>
-            <h1>Contact</h1>
-            <h3>Text an order or questions to Sarah at 630-854-5157</h3>
         </div>
         <!-- end of Home page -->
         <div id="about" class="page">
@@ -52,13 +51,13 @@
             <h3>Text an order or questions to Sarah at 630-854-5157</h3>
         </div>
         <!-- end of About Us page -->
-        <div id="order" class="page active">
+        <div id="order" class="page">
             <h1>Place Your Order</h1>
             <form id="order-form">
                 <label for="order-type">Order Type:</label>
                 <select id="order-type" name="order-type">
-                    <option value="small-treats">Pickup</option>
-                    <option value="large-treats">Delivery</option>
+                    <option value="pickup">Pickup</option>
+                    <option value="delivery">Delivery</option>
                 </select>      
                 <label for="customer-name">Your Name:</label>
                 <input type="text" id="customer-name" name="customer-name" placeholder="Full Name" required>
@@ -66,8 +65,11 @@
                 <label for="customer-name">Your Phone Number:</label>
                 <input type="text" id="customer-phone" name="customer-phone" placeholder="000-000-0000" required>
 
+                <label for="customer-name">Your Email:</label>
+                <input type="text" id="customer-email" name="customer-email" placeholder="example@email.com" required>
+
                 <label for="order-notes">Special instructions:</label>
-                <textarea id="order-notes" name="order-notes" rows="4" placeholder="Any special requests?"></textarea>
+                <textarea id="order-notes" name="order-notes" rows="4" placeholder="Anything that Sarah should know?"></textarea>
         
                 <label for="product-select">Choose a product:</label>
                 <select id="product-select" name="product">

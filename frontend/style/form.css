@@ -1,19 +1,25 @@
 #order-form {
+    width: 100%; /* Full width of the form */
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 600px; /* Adjust width as necessary */
+    width: 400px;
+    margin-inline: 5px;
+    max-width: 90%; /* Ensure the image is not wider than half the container */
     margin: 0 auto; /* Center form in the page */
     padding: 20px;
 }
 
 #order-form label {
+    width: 100%; /* Full width of the form */
     margin-top: 10px;
 }
 
 #order-form select,
 #order-form input[type=text],
 #order-form textarea {
+    max-width: 100%;
+    min-width: 100%;
     width: 100%; /* Full width of the form */
     padding: 10px;
     margin-top: 5px;
@@ -25,10 +31,11 @@
 #order-form input[type=submit] {
     width: auto;
     padding: 10px 20px;
-    margin-top: 15px;
+    margin-top: 5px;
     background-color: #63bfe4; /* Sky blue background */
     color: #ffffff; /* Very light blonde color for text */
     font-weight: bold;
+    font-size: 14pt;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -44,6 +51,7 @@
 }
 
 #cart-items {
+    width: 100%; /* Full width of the form */
     list-style-type: none;
     padding-left: 0;
 }
