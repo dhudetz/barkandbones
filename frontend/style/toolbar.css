@@ -38,7 +38,7 @@ nav a {
     text-decoration: none;
     color: #FFF5EE; /* Very light blonde color for text */
     font-weight: bold;
-    font-size: 1.5em; /* 50% larger font size */
+    font-size: 1.3em;
     transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and transform transitions */
     display: inline-block; /* Allows transform to apply properly */
     padding: 5px 15px;

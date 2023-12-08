@@ -19,8 +19,6 @@ p {
     justify-content: left; /* Center horizontally */
     align-items: center; /* Center vertically */
     padding-inline: 20px;
-    padding-top: 0px;
-    padding-bottom: 0px;
     font-size: 1.1em; /* 50% larger font size */
 }
 
