@@ -1,0 +1,45 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FFF2dd; /* Set the background color for the entire page */
+}
+body, h1, p, a, nav {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Style for the content pages */
+.page {
+    display: none;
+    background-color: #f5dfc4; /* Very light blonde background for content */
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 20px; /* Rounded corners for content pages */
+}
+
+.page.active {
+    display: block;
+}
+
+.image-container {
+    display: flex; /* Use flexbox to center the image within the container */
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    padding: 0px 10%; /* Add padding inside the div */
+    border-radius: 20px; /* Rounded corners of the div */
+    overflow: hidden; /* Ensures the content respects the border radius */
+    /* Add other styling as needed, for example, a border or a background color */
+}
+
+.image {
+    max-width: 100%; /* Ensure the image is not wider than the container */
+    max-height: 100%; /* Ensure the image is not taller than the container */
+    border-radius: 15px; /* Rounded corners of the image if you want them */
+    /* If you want the image to maintain its aspect ratio */
+    object-fit: contain; /* This will ensure the image aspect ratio is maintained */
+}
+
+/* Additional styles for a friendly tone */
+h1 {
+    color: #24261f; /* Darker color for headings */
+    text-align: center;
+}
