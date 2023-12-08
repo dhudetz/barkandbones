@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, current_app
 from flask_cors import CORS
 import os
 from threading import Lock
@@ -49,14 +49,15 @@ def send_email(recipient_email, subject, body):
 @app.route('/api/order-confirm/<order_id>', methods=['GET'])
 def confirm_order(order_id):
     with confirm_lock:
-        print(order_id)
+        current_app.logger.info(f"Order ID: {order_id}")
         email = order_email_dict.get(order_id)
-        print(email)
-        print("INFO ABOVE!")
+        current_app.logger.info(f"Email: {email}")
+        
         if email:
             send_email(email, "Order Confirmation", f"Your order {order_id} has been confirmed.")
             return jsonify({"message": "Order confirmed"}), 200
         else:
+            current_app.logger.error("Order ID not found")
             return jsonify({"error": "Order ID not found"}), 404
 
 @app.route('/api/order-deny/<order_id>', methods=['GET'])
