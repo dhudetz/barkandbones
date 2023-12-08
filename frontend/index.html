@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style/toolbar.css">
     <link rel="stylesheet" href="style/content.css">
     <link rel="stylesheet" href="style/config.css">
+    <link rel="stylesheet" href="style/form.css">
     <script src="src/json_reader.js"></script>
     <script src="src/toolbar_switcher.js" defer></script>
 </head>
@@ -47,8 +48,24 @@
             <h3>Text an order or questions Sarah at 630-854-5157</h3>
         </div>
         <div id="order" class="page">
-            <h1>Order</h1>
-            <p>Order Page Content</p>
+            <h1>Place Your Order</h1>
+            <form id="order-form">
+                <label for="product-select">Choose a product:</label>
+                <select id="product-select" name="product">
+                    <option value="">Please select an item</option>
+                    <option value="small-bag">Small Bag of Treats</option>
+                    <option value="medium-bag">Medium Bag of Treats</option>
+                    <option value="large-bag">Large Bag of Treats</option>
+                </select>
+        
+                <label for="customer-name">Your Name:</label>
+                <input type="text" id="customer-name" name="customer-name" placeholder="Full Name" required>
+        
+                <label for="order-notes">Special instructions:</label>
+                <textarea id="order-notes" name="order-notes" rows="4" placeholder="Any special requests?"></textarea>
+        
+                <input type="submit" value="Submit Order">
+            </form>
         </div>
     </main>
 </body>

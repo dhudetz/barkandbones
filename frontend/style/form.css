@@ -1,0 +1,40 @@
+#order-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px; /* Adjust width as necessary */
+    margin: 0 auto; /* Center form in the page */
+    padding: 20px;
+}
+
+#order-form label {
+    margin-top: 10px;
+}
+
+#order-form select,
+#order-form input[type=text],
+#order-form textarea {
+    width: 100%; /* Full width of the form */
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+}
+
+#order-form input[type=submit] {
+    width: auto;
+    padding: 10px 20px;
+    margin-top: 15px;
+    background-color: #87CEEB; /* Sky blue background */
+    color: #FFF5EE; /* Very light blonde color for text */
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#order-form input[type=submit]:hover {
+    background-color: #B0E0E6; /* Lighter blue for hover */
+}
