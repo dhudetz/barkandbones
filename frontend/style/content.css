@@ -69,7 +69,7 @@ main {
 
 .half-image {
     width: 700px;
-    max-width: 50%; /* Ensure the image is not wider than half the container */
+    max-width: calc(50% - 5px); /* Ensure the image is not wider than half the container */
     max-height: 100%; /* Ensure the image is not taller than the container */
     border-radius: 25px; /* Rounded corners of the image if you want them */
     object-fit: contain; /* This will ensure the image aspect ratio is maintained */
