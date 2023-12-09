@@ -98,9 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(response => response.json())
         .then(data => {
+            window.setActivePage("thank-you");
             rainBones();
-            alert('Order submitted successfully!');
-            rainBones(); // Call rainBones() to start the animation
             cart = []; // Clear the cart array
             updateCart(); // Update the cart display
             orderForm.reset(); // Reset the form

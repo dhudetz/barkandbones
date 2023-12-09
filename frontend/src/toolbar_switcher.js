@@ -5,15 +5,27 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-
-            // Remove active class from all links and pages
-            navLinks.forEach(link => link.classList.remove('active'));
-            pages.forEach(page => page.classList.remove('active'));
-
-            // Add active class to clicked link and corresponding page
-            this.classList.add('active');
-            const pageId = this.dataset.page;
-            document.getElementById(pageId).classList.add('active');
+            setActivePage(this.dataset.page);
         });
     });
+
+    function setActivePage(pageName) {
+        // Remove active class from all links and pages
+        navLinks.forEach(link => link.classList.remove('active'));
+        pages.forEach(page => page.classList.remove('active'));
+
+        // Find the link and page corresponding to pageName
+        const activeLink = [...navLinks].find(link => link.dataset.page === pageName);
+        const activePage = document.getElementById(pageName);
+
+        // Add active class to them
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
+        if (activePage) {
+            activePage.classList.add('active');
+        }
+    }
+
+    window.setActivePage = setActivePage;
 });

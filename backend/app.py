@@ -6,6 +6,7 @@ from twilio.rest import Client
 from random import randint
 import smtplib  # For sending email notifications
 
+# DEBUG SWITCHES
 debug_no_texting = False;
 
 app = Flask(__name__)

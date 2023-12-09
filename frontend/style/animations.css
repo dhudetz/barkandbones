@@ -24,7 +24,7 @@
         opacity: 1;
     }
     100% { 
-        transform: translateY(770%); /* Only translateY, no rotation */
+        transform: translateY(600%); /* Only translateY, no rotation */
         opacity: 0;
     }
 }
