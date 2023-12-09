@@ -53,7 +53,7 @@ def confirm_order(order_id):
             order_id_int = int(order_id)
             email = order_email_dict.get(order_id_int)
             if email:
-                send_email(email, "Order Confirmation", f"Your order {order_id} has been confirmed.")
+                send_email(email, "Order Confirmation", f"Success! Your order {order_id} has been confirmed. Thank you for doing business with Bark and Bones.")
                 return jsonify({"message": "Order confirmed"}), 200
             else:
                 return jsonify({"error": "Order ID not found"}), 404
@@ -68,7 +68,7 @@ def deny_order(order_id):
             order_id_int = int(order_id)
             email = order_email_dict.get(order_id_int)
             if email:
-                send_email(email, "Order Denied", f"Your order {order_id} has been denied.")
+                send_email(email, "Order Denied", f"Unfortunately your order from bark and bones has been denied. Please check back with us at another time. \n\n Your order {order_id} has been denied.")
                 return jsonify({"message": "Order denied"}), 200
             else:
                 return jsonify({"error": "Order ID not found"}), 404
