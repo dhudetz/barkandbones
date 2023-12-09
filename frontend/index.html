@@ -8,10 +8,13 @@
     <link rel="stylesheet" href="style/content.css">
     <link rel="stylesheet" href="style/config.css">
     <link rel="stylesheet" href="style/form.css">
+    <link rel="stylesheet" href="style/animations.css">
     <script src="src/json_reader.js"></script>
     <script src="src/toolbar_switcher.js" defer></script>
     <script src="src/order_handler.js" defer></script>
+    <script src="src/animations.js"></script>
     <script src="src/config.js" defer></script>
+    <link rel="icon" href="favicon_io/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -28,6 +31,7 @@
     </header>
 
     <main>
+        <div id="animation-container"></div>
         <div id="home" class="page active">
             <h1>Welcome to Bark & Bones</h1>
             <p id="home1" class="json"></p>
@@ -91,8 +95,8 @@
                 <label for="product-select">Choose a product:</label>
                 <select id="product-select" name="product">
                     <option value="">Please select an item</option>
-                    <option value="small-treats">Bag of 25 Small Treats - $10.00</option>
-                    <option value="large-treats">Bag of 20 Large Treats - $10.00</option>
+                    <option value="small-treats">Bag of 25 Small Bones - $10.00</option>
+                    <option value="large-treats">Bag of 20 Large Bones - $10.00</option>
                 </select>
                 <div>
                     <button type="button" id="add-to-cart">Add to Cart</button>
@@ -106,6 +110,7 @@
                 <input type="submit" value="Submit Order">
                 <!-- end of cart  -->
             </form>
+            <!-- end of order form -->
         </div> 
         <!-- end of Order page -->
     </main>

@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     const addToCartButton = document.getElementById('add-to-cart');
     const clearCartButton = document.getElementById('clear-cart');
     const cartItemsList = document.getElementById('cart-items');
@@ -44,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     addToCartButton.addEventListener('click', () => {
+        
         const selectedValue = productSelect.value;
         const selectedOption = productSelect.options[productSelect.selectedIndex];
 
@@ -97,7 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(response => response.json())
         .then(data => {
+            rainBones();
             alert('Order submitted successfully!');
+            rainBones(); // Call rainBones() to start the animation
             cart = []; // Clear the cart array
             updateCart(); // Update the cart display
             orderForm.reset(); // Reset the form

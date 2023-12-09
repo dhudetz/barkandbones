@@ -6,6 +6,8 @@ from twilio.rest import Client
 from random import randint
 import smtplib  # For sending email notifications
 
+debug_no_texting = True;
+
 app = Flask(__name__)
 CORS(app)
 
@@ -84,6 +86,8 @@ def receive_order():
         return jsonify({"message": "Order received successfully", "order_id": order_id}), 200
 
 def send_info_text(text_message, phone_number):
+    if debug_no_texting:
+        return;
     client.messages.create(
         from_ = '+18552044131',
         body = text_message,
