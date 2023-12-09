@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    rainBones();
+
     const addToCartButton = document.getElementById('add-to-cart');
     const clearCartButton = document.getElementById('clear-cart');
     const cartItemsList = document.getElementById('cart-items');

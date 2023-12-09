@@ -1,7 +1,7 @@
 function createBone() {
     const bone = document.createElement('div');
     bone.classList.add('bone');
-    bone.style.left = (Math.random() * 100 - 5) + 'vw';
+    bone.style.left = 'calc(' + (Math.random() * 100) + '100% - 100px)';
     bone.style.animationDuration = Math.random() * 0.5 + 1.2 + 's';
 
     // Array of pre-rotated bone image URLs
