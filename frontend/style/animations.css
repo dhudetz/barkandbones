@@ -17,7 +17,7 @@
 
 @keyframes fall {
     0% { 
-        transform: translateY(-250px); /* Only translateY, no rotation */
+        transform: translateY(-300px); /* Only translateY, no rotation */
         opacity: 1;
     }
     60% {
