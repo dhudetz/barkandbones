@@ -38,7 +38,7 @@ client = Client(account_sid, auth_token)
 def send_email(recipient_email, subject, body):
     # Configure your email server and sender email here
     sender_email = "barkandbones.orders@gmail.com"
-    password = "j34BaR67L9!"
+    password = "ogwp vpet areb uuou"
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
     server.login(sender_email, password)
