@@ -11,17 +11,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setActivePage(pageName) {
         // Remove active class from all links and pages
-        navLinks.forEach(link => link.classList.remove('active'));
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            // Diagnostic log
+        });
         pages.forEach(page => page.classList.remove('active'));
     
-        // Find the link and page corresponding to pageName
-        const activeLink = [...navLinks].find(link => link.dataset.page === pageName);
-        const activePage = document.getElementById(pageName);
+        // Add active class to all links corresponding to pageName
+        navLinks.forEach(link => {
+            if (link.dataset.page === pageName) {
+                link.classList.add('active');
+                // Diagnostic log
+            }
+        });
     
-        // Add active class to them
-        if (activeLink) {
-            activeLink.classList.add('active');
-        }
+        // Add active class to the page that corresponds to pageName
+        const activePage = document.getElementById(pageName);
         if (activePage) {
             activePage.classList.add('active');
         }
@@ -29,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Scroll to the top of the page
         window.scrollTo(0, 0);
     }
+    
     
     window.setActivePage = setActivePage;    
 });
