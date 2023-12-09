@@ -2,7 +2,7 @@ function createBone() {
     const bone = document.createElement('div');
     bone.classList.add('bone');
     bone.style.left = (Math.random() * 100 - 5) + 'vw';
-    bone.style.animationDuration = Math.random() * 0.3 + 0.9 + 's';
+    bone.style.animationDuration = Math.random() * 0.5 + 1.2 + 's';
 
     // Array of pre-rotated bone image URLs
     const boneImages = [
@@ -20,7 +20,7 @@ function createBone() {
 
     setTimeout(() => {
         bone.remove();
-    }, 2000);
+    }, 1200);
 }
 
 
@@ -32,5 +32,5 @@ function rainBones() {
     // Stop creating bones after 3 seconds
     setTimeout(() => {
         clearInterval(intervalId);
-    }, 1500);
+    }, 2500);
 }
