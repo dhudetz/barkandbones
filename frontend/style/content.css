@@ -85,6 +85,15 @@ main {
     object-fit: contain; /* This will ensure the image aspect ratio is maintained */
 }
 
+.thin-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: top; /* Align content to the top */
+    align-items: center; /* Center content horizontally */
+    max-width: 750px;
+    width: 100%;
+}
+
 /* Additional styles for a friendly tone */
 h1 {
     color: #24261f; /* Darker color for headings */
