@@ -111,7 +111,7 @@ def process_order(order_data):
     order_id = randint(1000000000, 9999999999)
     order_email_dict[order_id] = order_data['email']
     text_message = generate_order_message(order_data, order_id)
-    phone_number = '+17084463055'
+    phone_number = '+16308545157'
     send_info_text(text_message, phone_number)
     return order_id
 
