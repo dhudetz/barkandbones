@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalCostSpan = document.getElementById('total-cost');
     const productSelect = document.getElementById('product-select');
 
-    const prices = {
-        'small-treats': 10.00,
-        'large-treats': 10.00
+    const productPrices = {
+        'small-treats': 5.00,
+        'large-treats': 5.00
     };
 
     let cart = [];
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (selectedValue) {
             cart.push({
                 name: selectedOption.text.split(' - ')[0], // Just get the name without price
-                price: prices[selectedValue]
+                price: productPrices[selectedValue]
             });
 
             updateCart();

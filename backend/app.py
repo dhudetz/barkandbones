@@ -28,13 +28,13 @@ def set_backend_directory():
     elif folder_name != 'backend':
         print(f"Current directory is '{folder_name}', not changing directory")
 
-def get_api_key(filepath):
+def get_file_content(filepath):
     with open(filepath, 'r') as file:
         return file.readline().strip()
 
 set_backend_directory()
 api_key_path = 'api_key.txt'
-auth_token = get_api_key(api_key_path)
+auth_token = get_file_content(api_key_path)
 account_sid = 'ACcb8aab937cd40cdb342c3e8246b96b35'
 client = Client(account_sid, auth_token)
 
@@ -102,7 +102,7 @@ def generate_order_message(order_data, order_id):
     message = (
         f"NEW ORDER!\n\n{order_data['customerName']}\n{order_data['phoneNumber']}\n{order_data['email']}\n\n"
         f"{items_string}\n\nTotal: ${total_cost:.2f}\n\nMessage: {order_data['specialInstructions']}\n\n"
-        f"Confirm Order Link: http://barkandbones.org/api/order-confirm/{order_id}\nDeny Order Link: http://barkandbones.org/api/order-deny/{order_id}\n"
+        f"Confirm Order Link: http://barkandbones.org/api/order-confirm/{order_id}\n\nDeny Order Link: http://barkandbones.org/api/order-deny/{order_id}\n\n"
         f"Order Number: {order_id}"
     )
     return message
@@ -111,7 +111,9 @@ def process_order(order_data):
     order_id = randint(1000000000, 9999999999)
     order_email_dict[order_id] = order_data['email']
     text_message = generate_order_message(order_data, order_id)
-    phone_number = '+16308545157'
+    # Get the saved phone number
+    message_config_path = 'message_config.txt'
+    phone_number = get_file_content(message_config_path)
     send_info_text(text_message, phone_number)
     return order_id
 
