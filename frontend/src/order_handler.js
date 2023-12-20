@@ -4,10 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartItemsList = document.getElementById('cart-items');
     const totalCostSpan = document.getElementById('total-cost');
     const productSelect = document.getElementById('product-select');
+    const orderType = document.getElementById('order-type');
 
     const productPrices = {
         'small-treats': 5.00,
-        'large-treats': 5.00
+        'large-treats': 5.00,
+        'delivery': 5.00
     };
 
     let cart = [];
@@ -42,6 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalCost = Object.values(groupedItems).reduce((total, item) => total + item.totalPrice, 0);
         totalCostSpan.textContent = totalCost.toFixed(2);
     }
+
+    
 
     addToCartButton.addEventListener('click', () => {
         
@@ -112,21 +116,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    orderType.addEventListener('change', (event) => {
+        const selectedValue = event.target.value;
+    
+        // Assuming productPrices is defined somewhere with 'delivery' as a key
+        const deliveryFee = { name: 'Delivery Fee', price: productPrices['delivery'] };
+    
+        if (selectedValue === 'delivery') {
+            // Add the delivery fee to the cart
+            cart.push(deliveryFee);
+        } else if (selectedValue === 'pickup') {
+            // Remove the delivery fee from the cart
+            const index = cart.findIndex(item => item.name === 'Delivery Fee');
+            if (index !== -1) {
+                cart.splice(index, 1);
+            }
+        }
+    
+        updateCart();
+    });
+
     // Event listener for form submission
     orderForm.addEventListener('submit', (event) => {
         event.preventDefault(); // Prevent the default form submission
-        if(cart.length == 0){
-            alert('Please select at least one item. You can\'t buy nothing!');
+
+        // Check if the cart contains only 'Delivery Fee' or is empty
+        const hasItemsOtherThanDeliveryFee = cart.some(item => item.name !== 'Delivery Fee');
+        if (!hasItemsOtherThanDeliveryFee) {
+            alert('Please select at least one item besides the delivery fee.');
             return;
         }
-        if (submitting)
-            alert('Multiple submissions at once is not permitted!')
-        else
+
+        if (submitting) {
+            alert('Multiple submissions at once are not permitted!');
+        } else {
             submitOrder();
+        }
     });
 
     clearCartButton.addEventListener('click', () => {
         cart = []; // Clear the cart array
+        if (orderType.value == 'delivery'){
+            cart.push({
+                name: 'Delivery Fee', // Just get the name without price
+                price: productPrices['delivery']
+            });
+        }
         updateCart(); // Update the cart display
     });
 });

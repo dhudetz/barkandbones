@@ -20,6 +20,7 @@ deny_lock = Lock()
 # Dictionary to store order numbers and associated email addresses
 order_email_dict = {}
 
+# Gaurantees in correct root in dev or prod envs.
 def set_backend_directory():
     current_dir = os.getcwd()
     folder_name = os.path.basename(current_dir)
