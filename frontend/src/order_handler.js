@@ -70,6 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const customerPhoneInput = document.getElementById('customer-phone');
     const customerEmailInput = document.getElementById('customer-email');
     const orderNotesTextarea = document.getElementById('order-notes');
+    const customerAddressInput = document.getElementById('customer-address');
+    const customerAddressLabel = document.getElementById('customer-address-label');
     
     // Function to submit the order
     function submitOrder() {
@@ -77,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const customerName = customerNameInput.value.trim();
         const customerPhone = customerPhoneInput.value.trim();
         const customerEmail = customerEmailInput.value.trim();
+        const customerAddress = customerAddressInput.value.trim();
         const orderNotes = orderNotesTextarea.value.trim();
         
         // Construct the order data
@@ -85,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
             customerName: customerName,
             phoneNumber: customerPhone,
             email: customerEmail,
+            address: customerAddress,
             specialInstructions: orderNotes,
             orderItems: cart
         };
@@ -107,6 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
             cart = []; // Clear the cart array
             updateCart(); // Update the cart display
             orderForm.reset(); // Reset the form
+            customerAddressLabel.hidden = true;
+            customerAddressInput.hidden = true;
             submitting = false;
         })
         .catch(error => {
@@ -123,9 +129,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const deliveryFee = { name: 'Delivery Fee', price: productPrices['delivery'] };
     
         if (selectedValue === 'delivery') {
+            // Show the address
+            customerAddressLabel.hidden = false;
+            customerAddressInput.hidden = false;
             // Add the delivery fee to the cart
             cart.push(deliveryFee);
         } else if (selectedValue === 'pickup') {
+            // Hide address
+            customerAddressLabel.hidden = true;
+            customerAddressInput.hidden = true;
             // Remove the delivery fee from the cart
             const index = cart.findIndex(item => item.name === 'Delivery Fee');
             if (index !== -1) {

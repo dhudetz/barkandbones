@@ -50,7 +50,7 @@ def send_email(recipient_email, subject, body):
     server.sendmail(sender_email, recipient_email, message)
     server.quit()
 
-@app.route('/api/order-confirm/<order_id>', methods=['GET'])
+@app.route('/api/cfrm/<order_id>', methods=['GET'])
 def confirm_order(order_id):
     with confirm_lock:
         try:
@@ -65,7 +65,7 @@ def confirm_order(order_id):
             # Handle case where order_id is not an integer
             return jsonify({"error": "Invalid Order ID"}), 400
 
-@app.route('/api/order-deny/<order_id>', methods=['GET'])
+@app.route('/api/deny/<order_id>', methods=['GET'])
 def deny_order(order_id):
     with deny_lock:
         try:
@@ -101,10 +101,12 @@ def generate_order_message(order_data, order_id):
     total_cost = sum(item['price'] for item in order_data['orderItems'])
     items_string = "\n".join(f"{count}x {name}" for name, count in item_counts.items())
     message = (
-        f"NEW ORDER!\n\n{order_data['customerName']}\n{order_data['phoneNumber']}\n{order_data['email']}\n\n"
-        f"{items_string}\n\nTotal: ${total_cost:.2f}\n\nMessage: {order_data['specialInstructions']}\n\n"
-        f"Confirm Order Link: http://barkandbones.org/api/order-confirm/{order_id}\n\nDeny Order Link: http://barkandbones.org/api/order-deny/{order_id}\n\n"
-        f"Order Number: {order_id}"
+        f"NEW ORDER!\n\n{order_data['customerName']}\n"
+        f"{order_data['phoneNumber']}\n"
+        f"{order_data['email']}\n"
+        f"{order_data['address']}\n\n"
+        f"{items_string}\nTotal: ${total_cost:.2f}\n\nMessage: {order_data['specialInstructions']}\n\n"
+        f"Confirm Order Link: http://barkandbones.org/api/cfrm/{order_id}\n\nDeny Order Link: http://barkandbones.org/api/deny/{order_id}\n\n"
     )
     return message
 
