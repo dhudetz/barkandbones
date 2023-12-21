@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             item.classList.toggle('product-item-scale');
             setTimeout(() => {
                 item.classList.remove('product-item-scale');
-            }, 150); // This duration should match the CSS transition duration
+            }, 90); // This duration should match the CSS transition duration
 
             const selectedValue = item.getAttribute('data-value');
             const selectedLabel = item.querySelector('label').textContent;
