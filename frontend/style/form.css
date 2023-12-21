@@ -77,8 +77,8 @@
 .product-item {
     cursor: pointer;
     text-align: center;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 8px;
+    border-radius: 16px;
     transition: transform 0.15s ease;
 }
 
@@ -134,11 +134,15 @@ button{
     transition: transform 0.15s ease;
 }
 
+.product-item-scale {
+    transform: scale(1.15);
+    transition: transform 0.2s ease; /* Smooth transition for the scale effect */
+}
+
 @media (hover: hover) and (pointer: fine) {
     .product-item:hover {
-        transform: scale(1.1);
+        background-color: #dbb89a;
     }
-    
     button:hover {
         transform: scale(1.2); /* Slightly larger on hover */
     }
