@@ -1,3 +1,7 @@
+button{
+    transition: transform 0.15s ease;
+}
+
 #order-form {
     width: 100%; /* Full width of the form */
     display: flex;
@@ -73,11 +77,12 @@
     padding-left: 0;
     margin-top: 5px;
     margin-bottom: 0px;
+    height: 60px;
 }
 
 #product-options {
     display: flex;
-    justify-content: space-between;
+        gap:10px;
 }
 
 .product-item {
@@ -124,6 +129,11 @@
     height: 50px;
 }
 
+.product-item-scale {
+    transform: scale(1.15);
+    transition: transform 0.11s ease; /* Smooth transition for the scale effect */
+}
+
 #home-order-now {
     background: linear-gradient(57deg, #c9a88b, #ba9c84, #d5cbac, #97D2FB, #83b9ff); /* Rainbow gradient */
     color: #24261f; /* color for text */
@@ -133,25 +143,20 @@
     cursor: pointer;
     padding: 7px 25px;
     font-size: 1.4em;
-    background-size: 400% 400%; /* Larger background size for animation */
-    animation: rainbowAnimation 4.8s ease infinite; /* Animation for the gradient */
+    animation: rainbowAnimation 4s ease-in-out infinite; /* Apply animation on hover */
+    background-size: 700% 700%; /* Larger background size for animation */
 }
 
-button{
-    transition: transform 0.15s ease;
-}
 
-.product-item-scale {
-    transform: scale(1.15);
-    transition: transform 0.11s ease; /* Smooth transition for the scale effect */
-}
-
+/* ANIMATIONS */
 @media (hover: hover) and (pointer: fine) {
     .product-item:hover {
-        background-color: #dbb89a;
+        background: linear-gradient(57deg, #c9a88b, #ba9c84, #d5cbac, #97D2FB, #83b9ff);
+        animation: rainbowAnimation 1s ease-in-out infinite; /* Apply animation on hover */
+        background-size: 700% 700%; /* Larger background size for animation */
     }
     button:hover {
-        transform: scale(1.2); /* Slightly larger on hover */
+        transform: scale(1.2);
     }
 }
 
