@@ -53,15 +53,15 @@ button{
     background-color: #87CEEB; /* Sky blue background */
     color: #FFF5EE; /* Very light blonde color for text */
     font-weight: bold;
-    font-size: 14pt;
+    font-size: 16pt;
     border: none;
-    border-radius: 8px;
+    border-radius: 15px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #order-form input[type=submit]:hover {
-    background-color: #B0E0E6; /* Lighter blue for hover */
+    background-color: #add9ea; /* Lighter blue for hover */
 }
 
 #cart {
@@ -89,7 +89,7 @@ button{
     cursor: pointer;
     text-align: center;
     padding: 8px;
-    border-radius: 16px;
+    border-radius: 26px;
     transition: transform 0.15s ease;
 }
 
@@ -156,6 +156,9 @@ button{
         background-size: 700% 700%; /* Larger background size for animation */
     }
     button:hover {
+        transform: scale(1.2);
+    }
+    #submit-button:hover {
         transform: scale(1.2);
     }
 }
