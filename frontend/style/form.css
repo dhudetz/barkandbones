@@ -134,7 +134,7 @@
     padding: 7px 25px;
     font-size: 1.4em;
     background-size: 400% 400%; /* Larger background size for animation */
-    animation: rainbowAnimation 3s ease infinite; /* Animation for the gradient */
+    animation: rainbowAnimation 4.8s ease infinite; /* Animation for the gradient */
 }
 
 button{

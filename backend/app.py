@@ -6,9 +6,23 @@ from twilio.rest import Client
 from random import randint
 import smtplib  # For sending email notifications
 
-# DEBUG SWITCHES
-debug_no_texting = False;
+#####################################
+#            VARIABLES              #
+#####################################
+product_prices = {
+    'small-treats': 5.00,
+    'large-treats': 5.00,
+    'delivery': 5.00
+}
 
+# DEBUG SWITCH
+debug_no_texting = False;
+# Twilio Message Number
+twilio_phone_number = '+18552044131'
+
+#####################################
+#           SETUP/CONFIG            #
+#####################################
 app = Flask(__name__)
 CORS(app)
 
@@ -39,17 +53,9 @@ auth_token = get_file_content(api_key_path)
 account_sid = 'ACcb8aab937cd40cdb342c3e8246b96b35'
 client = Client(account_sid, auth_token)
 
-def send_email(recipient_email, subject, body):
-    # Configure your email server and sender email here
-    sender_email = "barkandbones.orders@gmail.com"
-    password = "ogwp vpet areb uuou"
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.starttls()
-    server.login(sender_email, password)
-    message = f'Subject: {subject}\n\n{body}'
-    server.sendmail(sender_email, recipient_email, message)
-    server.quit()
-
+#####################################
+#          API ORDER CONFIRM        #
+#####################################
 @app.route('/api/cfrm/<order_id>', methods=['GET'])
 def confirm_order(order_id):
     with confirm_lock:
@@ -80,6 +86,9 @@ def deny_order(order_id):
             # Handle case where order_id is not an integer
             return jsonify({"error": "Invalid Order ID"}), 400
 
+#####################################
+#            PROCESS ORDER          #
+#####################################
 @app.route('/api/order', methods=['POST'])
 def receive_order():
     with processing_lock:
@@ -87,14 +96,55 @@ def receive_order():
         order_id = process_order(order_data)
         return jsonify({"message": "Order received successfully", "order_id": order_id}), 200
 
+
+
+def process_order(order_data):
+    # Calculate the total price on the server side
+    total_price = 0
+    for item in order_data['orderItems']:
+        product_id = item['name']  # Assuming each item has an 'id'
+        quantity = item.get('quantity', 1)  # Default to 1 if quantity not provided
+        total_price += product_prices.get(product_id, 0) * quantity
+
+    # Generate an order ID
+    order_id = randint(1000000000, 9999999999)
+
+    # Add the total price to order data
+    order_data['totalPrice'] = total_price
+
+    # Continue with the rest of your order processing
+    order_email_dict[order_id] = order_data['email']
+    text_message = generate_order_message(order_data, order_id)
+    
+    # Get the saved phone number
+    message_config_path = 'message_config.txt'
+    phone_number = get_file_content(message_config_path)
+    send_info_text(text_message, phone_number)
+
+    return order_id
+
+#####################################
+#        MESSAGES AND EMAILS        #
+#####################################
 def send_info_text(text_message, phone_number):
     if debug_no_texting:
         return;
     client.messages.create(
-        from_ = '+18552044131',
+        from_ = twilio_phone_number,
         body = text_message,
         to = phone_number
     )
+
+def send_email(recipient_email, subject, body):
+    # Configure your email server and sender email here
+    sender_email = "barkandbones.orders@gmail.com"
+    password = "ogwp vpet areb uuou"
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login(sender_email, password)
+    message = f'Subject: {subject}\n\n{body}'
+    server.sendmail(sender_email, recipient_email, message)
+    server.quit()
 
 def generate_order_message(order_data, order_id):
     item_counts = {item['name']: order_data['orderItems'].count(item) for item in order_data['orderItems']}
@@ -110,15 +160,9 @@ def generate_order_message(order_data, order_id):
     )
     return message
 
-def process_order(order_data):
-    order_id = randint(1000000000, 9999999999)
-    order_email_dict[order_id] = order_data['email']
-    text_message = generate_order_message(order_data, order_id)
-    # Get the saved phone number
-    message_config_path = 'message_config.txt'
-    phone_number = get_file_content(message_config_path)
-    send_info_text(text_message, phone_number)
-    return order_id
+#####################################
+#    END OF MESSAGES AND EMAILS     #
+#####################################
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=5001)

@@ -119,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
             orderForm.reset(); // Reset the form
             customerAddressLabel.hidden = true;
             customerAddressInput.hidden = true;
+            customerAddressInput.removeAttribute('required');
             submitting = false;
         })
         .catch(error => {
@@ -138,12 +139,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // Show the address
             customerAddressLabel.hidden = false;
             customerAddressInput.hidden = false;
+            customerAddressInput.setAttribute('required', '');
             // Add the delivery fee to the cart
             cart.push(deliveryFee);
         } else if (selectedValue === 'pickup') {
             // Hide address
             customerAddressLabel.hidden = true;
             customerAddressInput.hidden = true;
+            customerAddressInput.removeAttribute('required');
             // Remove the delivery fee from the cart
             const index = cart.findIndex(item => item.name === 'Delivery Fee');
             if (index !== -1) {
