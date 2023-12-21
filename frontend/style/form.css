@@ -152,7 +152,7 @@ button{
 @media (hover: hover) and (pointer: fine) {
     .product-item:hover {
         background: linear-gradient(57deg, #c9a88b, #ba9c84, #d5cbac, #97D2FB, #83b9ff);
-        animation: rainbowAnimation 1s ease-in-out infinite; /* Apply animation on hover */
+        animation: rainbowAnimation 2.5s ease-in-out infinite; /* Apply animation on hover */
         background-size: 700% 700%; /* Larger background size for animation */
     }
     button:hover {
