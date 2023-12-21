@@ -41,7 +41,7 @@
     padding: 10px 20px;
     margin-top: 5px;
     background-color: #63bfe4; /* Sky blue background */
-    color: #ffffff; /* Very light blonde color for text */
+    color: #FFF5EE; /* Very light blonde color for text */
     font-weight: bold;
     font-size: 14pt;
     border: none;
@@ -103,6 +103,7 @@
     background-color: #dcb798; /* Sky blue background */
     color: #24261f; /* Very light blonde color for text */
     border: none;
+    font-size: 1em;
     border-radius: 8px;
     cursor: pointer;
 }
