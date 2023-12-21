@@ -96,3 +96,36 @@
     padding: 6px 10px; /* Adds padding inside the select box */
     font-size: 0.95em; /* Adjust the font size for better readability */
 }
+
+
+.button-container {
+    display: flex;
+    align-items: center; /* Center content vertically */
+    height: 50px;
+}
+
+#home-order-now {
+    background: linear-gradient(57deg, #c9a88b, #ba9c84, #d5cbac, #97D2FB, #839aff); /* Rainbow gradient */
+    color: #24261f; /* color for text */
+    font-weight: 700;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 7px 25px;
+    font-size: 1.4em;
+    transition: transform 0.15s ease;
+    background-size: 400% 400%; /* Larger background size for animation */
+    animation: rainbowAnimation 3s ease infinite; /* Animation for the gradient */
+}
+
+@media (hover: hover) and (pointer: fine) {
+    #home-order-now:hover {
+        transform: scale(1.2); /* Slightly larger on hover */
+    }
+}
+
+@keyframes rainbowAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}

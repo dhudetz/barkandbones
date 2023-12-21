@@ -19,7 +19,7 @@ p {
     justify-content: left; /* Center horizontally */
     align-items: center; /* Center vertically */
     padding-inline: 20px;
-    margin-top: 0px;
+    margin-top: 5px;
     margin-bottom: 5px;
     font-size: 1.1em; /* 50% larger font size */
 }
@@ -98,7 +98,7 @@ main {
 h1 {
     color: #24261f; /* Darker color for headings */
     padding-inline: 20px;
-    margin-top: 0.67em;
+    margin-top: 20px;
     margin-bottom: 10px;
 }
 

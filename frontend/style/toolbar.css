@@ -16,7 +16,7 @@ header {
     margin-bottom: 10px;
     margin-left: 15px;
     margin-top: 15px;
-    transition: transform 0.3s ease; /* Animation for logo */
+    transition: transform 0.15s ease; /* Animation for logo */
 }
 
 nav ul {
@@ -34,7 +34,7 @@ nav a {
     text-decoration: none;
     color: #FFF5EE; /* Very light blonde color for text */
     font-weight: bold;
-    font-size: 1.3em;
+    font-size: 1.4em;
     transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and transform transitions */
     display: inline-block; /* Allows transform to apply properly */
     padding: 5px 15px;
@@ -49,7 +49,7 @@ nav a.active {
 
 @media (hover: hover) and (pointer: fine) {
     #logo:hover {
-        transform: scale(1.1); /* Slightly larger on hover */
+        transform: scale(1.08); /* Slightly larger on hover */
     }
 
     nav a:hover:not(.active) {

@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
     const pages = document.querySelectorAll('.page');
+    const orderBonesHome = document.getElementById('home-order-now');
 
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -34,7 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Scroll to the top of the page
         window.scrollTo(0, 0);
     }
-    
-    
-    window.setActivePage = setActivePage;    
+    // Allow this function to be accesible from anywhere.
+    window.setActivePage = setActivePage;
+
+    orderBonesHome.addEventListener('click', () => {
+        setActivePage('order');
+    });
 });
