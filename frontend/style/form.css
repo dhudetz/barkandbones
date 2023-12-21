@@ -11,6 +11,12 @@
     padding-top: 0px;
 }
 
+#order-type {
+    height: 40px; /* Adjust the height as needed */
+    padding: 6px 10px; /* Adds padding inside the select box */
+    font-size: 0.95em; /* Adjust the font size for better readability */
+}
+
 #order-form p {
     width: 100%; /* Full width of the form */
     margin-inline: 0%;
@@ -137,7 +143,7 @@ button{
 
 .product-item-scale {
     transform: scale(1.15);
-    transition: transform 0.09s ease; /* Smooth transition for the scale effect */
+    transition: transform 0.11s ease; /* Smooth transition for the scale effect */
 }
 
 @media (hover: hover) and (pointer: fine) {
