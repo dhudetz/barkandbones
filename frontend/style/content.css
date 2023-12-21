@@ -12,6 +12,7 @@ body {
 
 body, h1, h3, p, a, nav, button, input, label {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #24261f;
 }
 
 p {

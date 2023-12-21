@@ -4,7 +4,9 @@ header {
     flex-direction: row; /* Elements aligned in a row */
     justify-content: left; /* Center content horizontally */
     align-items: center; /* Center content vertically */
-    background-color: #87CEEB; /* Sky blue background */
+    background: linear-gradient(90deg, #87CEEB, #8bc5ff); /* Rainbow gradient */
+    background-size: 400% 400%; /* Larger background size for animation */
+    animation: rainbowAnimation 8s ease-in-out infinite; /* Apply animation on hover */
     border-radius: 20px; /* Rounded corners for the top bar */
     width: 100%; /* Full width of the container */
     margin: 20px;
