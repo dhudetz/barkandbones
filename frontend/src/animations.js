@@ -23,8 +23,6 @@ function createBone() {
     }, 1200);
 }
 
-
-
 function rainBones() {
     // Start creating bones
     const intervalId = setInterval(createBone, 60);
@@ -32,5 +30,5 @@ function rainBones() {
     // Stop creating bones after 3 seconds
     setTimeout(() => {
         clearInterval(intervalId);
-    }, 2500);
+    }, 4500);
 }
