@@ -103,18 +103,22 @@
                 <label for="order-notes">Special instructions:</label>
                 <textarea id="order-notes" name="order-notes" rows="4" placeholder="Anything that Sarah should know?"></textarea>
         
-                <label for="product-select">Choose a product:</label>
-                <select id="product-select" name="product">
-                    <option value="small-treats">Bag of 25 Small Bones - $5.00</option>
-                    <option value="large-treats">Bag of 20 Large Bones - $5.00</option>
-                </select>
-                <div>
-                    <button type="button" id="add-to-cart">Add to Cart</button>
-                    <button type="button" id="clear-cart">Clear Cart</button>
+                <h4>Click a Product!</h4>
+                <div id="product-options">
+                    <div class="product-item" data-value="small-treats">
+                        <img src="images/small_bag.webp" alt="Small Treats">
+                        <label>Bag of 25 Small Bones - $5.00</label>
+                    </div>
+                    <div class="product-item" data-value="large-treats">
+                        <img src="images/large_bag.webp" alt="Large Treats">
+                        <label>Bag of 20 Large Bones - $5.00</label>
+                    </div>
                 </div>
+
                 <div id="cart">
                     <h3>Your Cart</h3>
                     <ul id="cart-items"></ul>
+                    <button type="button" id="clear-cart">Clear</button>
                     <h3>Total Cost: $<span id="total-cost">0.00</span></h3>
                 </div>
                 <input type="submit" value="Submit Order">

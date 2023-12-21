@@ -47,21 +47,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
 
-    addToCartButton.addEventListener('click', () => {
-        
-        const selectedValue = productSelect.value;
-        const selectedOption = productSelect.options[productSelect.selectedIndex];
-
-        if (selectedValue) {
-            cart.push({
-                name: selectedOption.text.split(' - ')[0], // Just get the name without price
-                price: productPrices[selectedValue]
-            });
-
-            updateCart();
-        } else {
-            alert('Please select a product to add to your cart.');
-        }
+    document.querySelectorAll('.product-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const selectedValue = item.getAttribute('data-value');
+            const selectedLabel = item.querySelector('label').textContent;
+    
+            if (selectedValue) {
+                cart.push({
+                    name: selectedLabel.split(' - ')[0], // Just get the name without price
+                    price: productPrices[selectedValue]
+                });
+    
+                updateCart();
+            } else {
+                alert('Please select a product to add to your cart.');
+            }
+        });
     });
 
     // Additional variables for new form fields

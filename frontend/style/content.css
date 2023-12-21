@@ -103,7 +103,7 @@ h1 {
 }
 
 /* Additional styles for a friendly tone */
-h3 {
+h3, h4 {
     color: #24261f; /* Darker color for headings */
     padding-inline: 20px;
     margin-bottom: 0%;
