@@ -5,6 +5,8 @@ from threading import Lock
 from twilio.rest import Client
 from random import randint
 import smtplib  # For sending email notifications
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
 #####################################
 #            VARIABLES              #
@@ -23,8 +25,17 @@ twilio_phone_number = '+18552044131'
 #####################################
 #           SETUP/CONFIG            #
 #####################################
+
+# Initialize Flask
 app = Flask(__name__)
 CORS(app)
+
+# Initialize Limiter
+limiter = Limiter(
+    get_remote_address, # IP of user
+    app=app,
+    default_limits=["2 per minute"]
+)
 
 # Initialize locks
 processing_lock = Lock()
