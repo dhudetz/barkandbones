@@ -30,7 +30,7 @@ twilio_phone_number = '+18552044131'
 app = Flask(__name__)
 CORS(app)
 
-# Initialize Limiter
+# Initialize HTTP Limiter
 limiter = Limiter(
     get_remote_address, # IP of user
     app=app,
