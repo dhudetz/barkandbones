@@ -238,7 +238,7 @@ def generate_order_text(order_data, order_id):
         f"{order_data['email']}\n"
         f"{order_data['address']}\n\n"
         f"{items_string}\nTotal: ${total_cost:.2f}\n\nMessage: {order_data['specialInstructions']}\n\n"
-        f"Confirm Order Link: http://localhost:5001/api/cfrm/{order_id}\n\nDeny Order Link: http://localhost:5001/api/deny/{order_id}\n\n"
+        f"Confirm Order Link: http://barkandbones.org/api/cfrm/{order_id}\n\nDeny Order Link: http://barkandbones.org/api/deny/{order_id}\n\n"
     )
     return message
 
