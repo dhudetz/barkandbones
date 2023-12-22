@@ -1,7 +1,28 @@
-button{
-    transition: transform 0.15s ease;
+/* ORDER PAGE SETUP */
+#order-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Allows items to wrap onto the next line */
 }
 
+
+/* ORDER CONTENT SETUP */
+#shopping {
+    width: 100%; /* Full width of the form */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    margin-inline: 5px;
+    max-width: 90%; /* Ensure the image is not wider than half the container */
+    margin: 0 auto; /* Center form in the page */
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
 #order-form {
     width: 100%; /* Full width of the form */
     display: flex;
@@ -13,6 +34,7 @@ button{
     margin: 0 auto; /* Center form in the page */
     padding: 20px;
     padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 #order-type {
@@ -47,6 +69,7 @@ button{
 }
 
 #order-form input[type=submit] {
+    margin-bottom: 10px;
     width: auto;
     padding: 10px 20px;
     margin-top: 5px;
@@ -64,7 +87,7 @@ button{
     background-color: #add9ea; /* Lighter blue for hover */
 }
 
-#cart {
+#cart, #subcart {
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -77,12 +100,22 @@ button{
     padding-left: 0;
     margin-top: 5px;
     margin-bottom: 0px;
-    height: 60px;
+    height: 50px;
+}
+
+#subcart-items {
+    width: 100%; /* Full width of the form */
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    height: 40px;
 }
 
 #product-options {
     display: flex;
-        gap:10px;
+    gap:10px;
+    margin-bottom: 10px;
 }
 
 .product-item {
@@ -109,9 +142,8 @@ button{
 }
 
 #clear-cart {
-    margin-top: 10px;
     padding: 5px 15px;
-    background-color: #dcb798; /* Sky blue background */
+    background-color: #c9a88b; /* Sky blue background */
     color: #24261f; /* Very light blonde color for text */
     border: none;
     font-size: 1em;
@@ -147,6 +179,22 @@ button{
     background-size: 700% 700%; /* Larger background size for animation */
 }
 
+#order-notes{
+    margin-bottom: 10px;
+}
+
+#subtotal{
+    width: 145px;
+    margin: 0px;
+}
+
+#subtotal-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
 
 /* ANIMATIONS */
 @media (hover: hover) and (pointer: fine) {

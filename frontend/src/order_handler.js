@@ -2,7 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const addToCartButton = document.getElementById('add-to-cart');
     const clearCartButton = document.getElementById('clear-cart');
     const cartItemsList = document.getElementById('cart-items');
+    const subcartItemsList = document.getElementById('subcart-items');
     const totalCostSpan = document.getElementById('total-cost');
+    const subtotalCostSpan = document.getElementById('subtotal-cost');
     const productSelect = document.getElementById('product-select');
     const orderType = document.getElementById('order-type');
 
@@ -16,37 +18,53 @@ document.addEventListener('DOMContentLoaded', () => {
     let submitting = false;
 
     function updateCart() {
-        // Clear the current items list
+        // Clear the current items lists
         cartItemsList.innerHTML = '';
-
+        subcartItemsList.innerHTML = '';
+        let subtotal = 0;
+    
         // Group items by name and sum their quantities and prices
         const groupedItems = cart.reduce((acc, item) => {
-            if (!acc[item.name]) {
-                acc[item.name] = {
+            if (!acc[item.id]) {
+                acc[item.id] = {
+                    id: item.id,
+                    name: item.name,
                     price: item.price,
                     quantity: 0,
                     totalPrice: 0
                 };
             }
-            acc[item.name].quantity++;
-            acc[item.name].totalPrice += item.price;
+            acc[item.id].quantity++;
+            acc[item.id].totalPrice += item.price;
+    
+            // Add to subtotal only if the item is not the delivery fee
+            if (item.id !== 'delivery') {
+                subtotal += item.price * acc[item.id].quantity;
+            }
+            
             return acc;
         }, {});
-
-        // Update list with grouped cart items
-        Object.entries(groupedItems).forEach(([name, item]) => {
+    
+        // Update list with grouped cart items and subcart items
+        Object.entries(groupedItems).forEach(([id, item]) => {
             const li = document.createElement('li');
-            li.textContent = `${item.quantity}x ${name} - $${item.totalPrice.toFixed(2)}`;
+            li.textContent = `${item.quantity}x ${item.name} - $${item.totalPrice.toFixed(2)}`;
             cartItemsList.appendChild(li);
+    
+            // If the item is not a delivery fee, add it to the subcart
+            if (id !== 'delivery') {
+                const subLi = li.cloneNode(true);
+                subcartItemsList.appendChild(subLi);
+            }
         });
-
-        // Calculate total cost
-        const totalCost = Object.values(groupedItems).reduce((total, item) => total + item.totalPrice, 0);
+    
+        // Update subtotal and total costs
+        subtotalCostSpan.textContent = subtotal.toFixed(2);
+        const totalCost = subtotal + (groupedItems['delivery'] ? groupedItems['delivery'].totalPrice : 0);
         totalCostSpan.textContent = totalCost.toFixed(2);
     }
 
-    
-
+    // Add event listeners for each item card.
     document.querySelectorAll('.product-item').forEach(item => {
         item.addEventListener('click', () => {
             item.classList.toggle('product-item-scale');
@@ -59,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
             if (selectedValue) {
                 cart.push({
+                    id: selectedValue,
                     name: selectedLabel.split(' - ')[0], // Just get the name without price
                     price: productPrices[selectedValue]
                 });
@@ -133,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const selectedValue = event.target.value;
     
         // Assuming productPrices is defined somewhere with 'delivery' as a key
-        const deliveryFee = { name: 'Delivery Fee', price: productPrices['delivery'] };
+        const deliveryFee = { id: 'delivery', name: 'Delivery Fee', price: productPrices['delivery'] };
     
         if (selectedValue === 'delivery') {
             // Show the address
@@ -148,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
             customerAddressInput.hidden = true;
             customerAddressInput.removeAttribute('required');
             // Remove the delivery fee from the cart
-            const index = cart.findIndex(item => item.name === 'Delivery Fee');
+            const index = cart.findIndex(item => item.id === 'delivery');
             if (index !== -1) {
                 cart.splice(index, 1);
             }
@@ -162,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault(); // Prevent the default form submission
 
         // Check if the cart contains only 'Delivery Fee' or is empty
-        const hasItemsOtherThanDeliveryFee = cart.some(item => item.name !== 'Delivery Fee');
+        const hasItemsOtherThanDeliveryFee = cart.some(item => item.id !== 'delivery');
         if (!hasItemsOtherThanDeliveryFee) {
             alert('Please select at least one item besides the delivery fee.');
             return;
@@ -179,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cart = []; // Clear the cart array
         if (orderType.value == 'delivery'){
             cart.push({
+                id: 'delivery',
                 name: 'Delivery Fee', // Just get the name without price
                 price: productPrices['delivery']
             });

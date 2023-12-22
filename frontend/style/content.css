@@ -86,6 +86,15 @@ main {
     object-fit: contain; /* This will ensure the image aspect ratio is maintained */
 }
 
+.dog-gif {
+    width: 280px;
+    max-width: calc(50% - 5px); /* Ensure the image is not wider than half the container */
+    max-height: 100%; /* Ensure the image is not taller than the container */
+    margin-bottom: 0px;
+    border-radius: 25px; /* Rounded corners of the image if you want them */
+    object-fit: contain; /* This will ensure the image aspect ratio is maintained */
+}
+
 .thin-content{
     display: flex;
     flex-direction: column;
@@ -115,4 +124,8 @@ h3, h4 {
 
 h3.contact-info {
     margin-bottom: 20px;
+}
+
+button{
+    transition: transform 0.15s ease;
 }

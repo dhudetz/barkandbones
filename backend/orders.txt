@@ -1,0 +1,12 @@
+2023-12-21 22:03:51 - Order ID: 1185148974, Customer Name: Danny, Total Cost: $0.00
+2023-12-21 23:03:20 - Order ID: 6956397087, Customer Name: Test, Total Cost: $0.00
+2023-12-21 23:03:30 - Order ID: 6792727339, Customer Name: a, Total Cost: $0.00
+2023-12-21 23:16:00 - Order ID: 9510856879, Customer Name: Test, Total Cost: $15.00
+2023-12-21 23:17:16 - Order ID: 8894749995, Customer Name: test, Total Cost: $10.00
+2023-12-21 23:18:27 - Order ID: 8806300052, Customer Name: Danny Hudetz, Total Cost: $20.00
+2023-12-21 23:26:31 - Order ID: 6490849015, Customer Name: Final Test, Total Cost: $25.00
+2023-12-21 23:29:33 - Order ID: 6039238543, Customer Name: Test, Total Cost: $15.00
+2023-12-21 23:32:43 - Order ID: 3503521522, Customer Name: Danny, Total Cost: $20.00
+2023-12-21 23:35:03 - Order ID: 3056329584, Customer Name: a, Total Cost: $5.00
+2023-12-21 23:39:17 - Order ID: 5665815777, Customer Name: Danny, Total Cost: $5.00
+2023-12-21 23:52:03 - Order ID: 2115738105, Customer Name: Danny, Total Cost: $10.00

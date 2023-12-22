@@ -76,55 +76,66 @@
             </div>
         </div>
         <!-- end of About Us page -->
+        
         <div id="order" class="page">
             <h1>Place Your Order</h1>
-            <form id="order-form">
-                <div class="content-container">
-                    <p id="orderPageInfo2" class="json"></p>
-                    <p id="orderPageInfo1" class="json"></p>
-                </div>
-                <label for="order-type">Order Type:</label>
-                <select id="order-type" name="order-type">
-                    <option value="pickup">Pickup</option>
-                    <option value="delivery">Delivery</option>
-                </select>      
-                <label for="customer-name">Your Name:</label>
-                <input type="text" id="customer-name" name="customer-name" placeholder="Full Name" required>
-        
-                <label for="customer-name">Your Phone Number:</label>
-                <input type="text" id="customer-phone" name="customer-phone" placeholder="000-000-0000" required>
-
-                <label for="customer-name">Your Email:</label>
-                <input type="text" id="customer-email" name="customer-email" placeholder="example@email.com" required>
-
-                <label for="customer-address" id="customer-address-label" hidden=true>Your Address:</label>
-                <input type="text" id="customer-address" name="customer-address" placeholder="1000 Main Ave, Wilmington, IL" hidden=true>
-
-                <label for="order-notes">Special instructions:</label>
-                <textarea id="order-notes" name="order-notes" rows="4" placeholder="Anything that Sarah should know?"></textarea>
-        
-                <h4>Click to add to cart!</h4>
-                <div id="product-options">
-                    <div class="product-item" data-value="small-treats">
-                        <img src="images/small_bag.webp" alt="Small Treats">
-                        <label>Bag of 25 Small Bones - $5.00</label>
+            <div id="order-container">    
+                <div id="shopping">
+                    <div class="content-container">
+                        <p id="orderPageInfo2" class="json"></p>
+                        <p id="orderPageInfo1" class="json"></p>
                     </div>
-                    <div class="product-item" data-value="large-treats">
-                        <img src="images/large_bag.webp" alt="Large Treats">
-                        <label>Bag of 20 Large Bones - $5.00</label>
+                    <h4>Click to add to cart!</h4>
+                    <div id="product-options">
+                        <div class="product-item" data-value="small-treats">
+                            <img src="images/small_bag.webp" alt="Small Treats">
+                            <label>Bag of 25 Small Bones - $5.00</label>
+                        </div>
+                        <div class="product-item" data-value="large-treats">
+                            <img src="images/large_bag.webp" alt="Large Treats">
+                            <label>Bag of 20 Large Bones - $5.00</label>
+                        </div>
                     </div>
-                </div>
 
-                <div id="cart">
-                    <h3>Your Cart</h3>
-                    <ul id="cart-items"></ul>
-                    <button type="button" id="clear-cart">Clear</button>
-                    <h3>Total Cost: $<span id="total-cost">0.00</span></h3>
+                    <div id="subcart">
+                        <ul id="subcart-items"></ul>
+                        <div id="subtotal-container">
+                            <h4 id="subtotal">Subtotal: $<span id="subtotal-cost">0.00</span></h4>
+                            <button type="button" id="clear-cart">Clear</button>
+                        </div>
+                    </div>
+                    <!-- end of cart  -->
                 </div>
-                <input type="submit" value="Submit Order" id="submit-button">
-                <!-- end of cart  -->
-            </form>
-            <!-- end of order form -->
+                <!-- end of shopping div  -->
+                <form id="order-form">
+                    <label for="order-type">Order Type:</label>
+                    <select id="order-type" name="order-type">
+                        <option value="pickup">Pickup</option>
+                        <option value="delivery">Delivery</option>
+                    </select>      
+                    <label for="customer-name">Your Name:</label>
+                    <input type="text" id="customer-name" name="customer-name" placeholder="Full Name" required>
+            
+                    <label for="customer-phone">Your Phone Number:</label>
+                    <input type="text" id="customer-phone" name="customer-phone" placeholder="000-000-0000" required>
+    
+                    <label for="customer-email">Your Email:</label>
+                    <input type="text" id="customer-email" name="customer-email" placeholder="example@email.com" required>
+    
+                    <label for="customer-address" id="customer-address-label" hidden=true>Your Address:</label>
+                    <input type="text" id="customer-address" name="customer-address" placeholder="1000 Main Ave, Wilmington, IL" hidden=true>
+    
+                    <label for="order-notes">Special instructions:</label>
+                    <textarea id="order-notes" name="order-notes" rows="4" placeholder="Anything that Sarah should know?"></textarea>
+                    <div id="cart">
+                        <ul id="cart-items"></ul>
+                        <h3 id="total">Total Cost: $<span id="total-cost">0.00</span></h3>
+                    </div>
+                    <input type="submit" value="Submit Order" id="submit-button">
+                </form>
+                <!-- end of order form -->
+            </div>
+            <!-- end of Order container -->
         </div> 
         <!-- end of Order page -->
         <div id="thank-you" class="page">
