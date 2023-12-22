@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         subcartItemsList.innerHTML = '';
         let subtotal = 0;
     
-        // Group items by name and sum their quantities and prices
+        // Group items by id and sum their quantities and prices
         const groupedItems = cart.reduce((acc, item) => {
             if (!acc[item.id]) {
                 acc[item.id] = {
@@ -36,12 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             acc[item.id].quantity++;
             acc[item.id].totalPrice += item.price;
-    
-            // Add to subtotal only if the item is not the delivery fee
-            if (item.id !== 'delivery') {
-                subtotal += item.price * acc[item.id].quantity;
-            }
-            
             return acc;
         }, {});
     
@@ -58,11 +52,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     
+        // Calculate subtotal (excluding delivery fee)
+        subtotal = Object.values(groupedItems).reduce((total, item) => {
+            return item.id !== 'delivery' ? total + item.totalPrice : total;
+        }, 0);
+    
         // Update subtotal and total costs
         subtotalCostSpan.textContent = subtotal.toFixed(2);
         const totalCost = subtotal + (groupedItems['delivery'] ? groupedItems['delivery'].totalPrice : 0);
         totalCostSpan.textContent = totalCost.toFixed(2);
     }
+    
 
     // Add event listeners for each item card.
     document.querySelectorAll('.product-item').forEach(item => {
