@@ -62,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalCost = subtotal + (groupedItems['delivery'] ? groupedItems['delivery'].totalPrice : 0);
         totalCostSpan.textContent = totalCost.toFixed(2);
     }
-    
 
     // Add event listeners for each item card.
     document.querySelectorAll('.product-item').forEach(item => {
