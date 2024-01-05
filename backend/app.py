@@ -221,7 +221,8 @@ def generate_email_body(order_data, order_id, status):
         f"Address: {order_data['address']}\n\n"
         f"Items:\n{item_list}\n\n"
         f"Total Cost: ${total_cost:.2f}\n\n"
-        f"Thank you for doing business with Bark and Bones."
+        f"Thank you for doing business with Bark and Bones.\n\n\n"
+        f"Please do not respond to this email. For questions, contact Pat Hudetz at (630) 935-2103."
     )
     return subject, body
 
@@ -238,7 +239,7 @@ def generate_order_text(order_data, order_id):
         f"{order_data['email']}\n"
         f"{order_data['address']}\n\n"
         f"{items_string}\nTotal: ${total_cost:.2f}\n\nMessage: {order_data['specialInstructions']}\n\n"
-        f"Confirm Order Link: http://barkandbones.org/api/cfrm/{order_id}\n\nDeny Order Link: http://barkandbones.org/api/deny/{order_id}\n\n"
+        f"Confirm Order Link: https://barkandbones.org/api/cfrm/{order_id}\n\nDeny Order Link: https://barkandbones.org/api/deny/{order_id}\n\n"
     )
     return message
 
