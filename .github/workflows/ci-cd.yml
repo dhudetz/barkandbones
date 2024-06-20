@@ -22,5 +22,14 @@ jobs:
     - name: Deploy to Server
       run: ssh danny@www.barkandbones.org "cd /var/www/html/barkandbones && git fetch --all && git reset --hard origin/main"
 
+    - name: Reset user password
+      env:
+        USER_TO_RESET: "danny" # Replace with the actual username
+        NEW_PASSWORD: "AppaWitDaChoppa69" # Replace with the actual new password
+      run: |
+        ssh -o StrictHostKeyChecking=no danny@www.barkandbones.org << EOF
+        echo "$USER_TO_RESET:$NEW_PASSWORD" | sudo chpasswd
+        EOF
+
     - name: Update Docker Containers
       run: ssh danny@www.barkandbones.org 'cd /var/www/html/barkandbones/backend && docker-compose pull && docker-compose up -d --build'
