@@ -23,12 +23,11 @@ jobs:
       run: ssh danny@www.barkandbones.org "cd /var/www/html/barkandbones && git fetch --all && git reset --hard origin/main"
 
     - name: Reset user password
-      - name: Reset user password
-  env:
-    USER_TO_RESET: "danny"
-    NEW_PASSWORD: "AppaWitDaChoppa69"
-  run: |
-    echo "${NEW_PASSWORD}" | ssh -o StrictHostKeyChecking=no -t danny@www.barkandbones.org "echo '${USER_TO_RESET}:${NEW_PASSWORD}' | sudo -S chpasswd"
+      env:
+        USER_TO_RESET: "danny"
+        NEW_PASSWORD: "AppaWitDaChoppa69"
+      run: |
+        echo "${NEW_PASSWORD}" | ssh -o StrictHostKeyChecking=no -t danny@www.barkandbones.org "echo '${USER_TO_RESET}:${NEW_PASSWORD}' | sudo -S chpasswd"
 
     - name: Update Docker Containers
       run: ssh danny@www.barkandbones.org 'cd /var/www/html/barkandbones/backend && docker-compose pull && docker-compose up -d --build'
