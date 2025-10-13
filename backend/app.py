@@ -67,7 +67,7 @@ client = Client(account_sid, auth_token)
 #####################################
 #          API ORDER CONFIRM        #
 #####################################
-@app.route('/api/cfrm/<order_id>', methods=['GET'])
+@app.route('/cfrm/<order_id>', methods=['GET'])
 def confirm_order(order_id):
     with confirm_lock:
         try:
@@ -88,7 +88,7 @@ def confirm_order(order_id):
         except ValueError:
             return jsonify({"error": "Invalid Order ID"}), 400
 
-@app.route('/api/deny/<order_id>', methods=['GET'])
+@app.route('/deny/<order_id>', methods=['GET'])
 def deny_order(order_id):
     with deny_lock:
         try:
@@ -131,9 +131,9 @@ def log_access(endpoint):
 #####################################
 #            PROCESS ORDER          #
 #####################################
-@app.route('/api/order', methods=['POST'])
+@app.route('/order', methods=['POST'])
 def receive_order():
-    log_access('/api/order')  # Log server access
+    log_access('/order')  # Log server access
     with processing_lock:
         order_data = request.get_json()
         order_id = process_order(order_data)

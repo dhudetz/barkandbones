@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         submitting = true;
 
         // Send the order data to the server
-        fetch(`${config.API_BASE_URL}/api/order`, {
+        fetch(`api/order`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
