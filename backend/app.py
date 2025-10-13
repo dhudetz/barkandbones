@@ -195,10 +195,10 @@ def send_email(recipient_email, subject, body):
 def generate_email_body(order_data, order_id, status):
     if status == "confirmed":
         subject = "Order Confirmation"
-        body = "Success! Your order has been confirmed!\n\n"
+        body = "Success! Your order with Bark and Bones has been confirmed! Sarah and Pat have been notified of your order. Please pay in person when you pick up your order.\n\n"
     else:
         subject = "Order Denied"
-        body = "Unfortunately, your order has been denied due to our production limitations.\n\n"
+        body = "Unfortunately, your order could not be fulfilled.\n\n"
 
     # Count the occurrences of each item
     item_counts = {}
@@ -216,12 +216,8 @@ def generate_email_body(order_data, order_id, status):
     body += (
         f"Order ID: {order_id}\n"
         f"Customer Name: {order_data['customerName']}\n"
-        f"Phone Number: {order_data['phoneNumber']}\n"
-        f"Email: {order_data['email']}\n"
-        f"Address: {order_data['address']}\n\n"
         f"Items:\n{item_list}\n\n"
         f"Total Cost: ${total_cost:.2f}\n\n"
-        f"Thank you for doing business with Bark and Bones.\n\n\n"
         f"Please do not respond to this email. For questions, contact Pat Hudetz at (630) 935-2103."
     )
     return subject, body
