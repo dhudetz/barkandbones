@@ -26,7 +26,7 @@ p {
 }
 
 /* Larger fonts for browser screens (desktop/tablet) */
-@media (min-width: 768px) {
+@media (min-width: 550px) {
     p {
         font-size: 1.65em; /* 150% larger font size for browsers */
     }
