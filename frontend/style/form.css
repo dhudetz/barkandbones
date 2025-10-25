@@ -152,6 +152,37 @@
     cursor: pointer;
 }
 
+/* Larger fonts for browser screens */
+@media (min-width: 768px) {
+    #clear-cart {
+        padding: 7.5px 22.5px;
+        font-size: 1.5em; /* 150% larger for browsers */
+    }
+    
+    /* Order form elements */
+    #order-type {
+        font-size: 1.425em; /* 150% larger for browsers */
+    }
+    
+    #order-form input[type=submit] {
+        font-size: 16pt; /* Keep original size */
+    }
+    
+    #home-order-now {
+        font-size: 2.1em; /* 150% larger for browsers */
+    }
+    
+    /* All form labels and inputs */
+    label, input, select, textarea {
+        font-size: 1.5em; /* 150% larger for browsers */
+    }
+    
+    /* Cart items text - 1.8x bigger for browsers */
+    #cart-items li, #subcart-items li {
+        font-size: 1.8em; /* 1.8x bigger for browsers */
+    }
+}
+
 #clear-cart:hover {
     background-color: #ba9c84; /* Lighter blue for hover */
 }

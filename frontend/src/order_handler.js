@@ -7,6 +7,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const subtotalCostSpan = document.getElementById('subtotal-cost');
     const productSelect = document.getElementById('product-select');
     const orderType = document.getElementById('order-type');
+    const orderForm = document.getElementById('order-form');
+    
+    // Check if required elements exist
+    if (!clearCartButton) {
+        console.error('Clear cart button not found');
+        return;
+    }
+    if (!cartItemsList) {
+        console.error('Cart items list not found');
+        return;
+    }
+    if (!totalCostSpan) {
+        console.error('Total cost span not found');
+        return;
+    }
+    if (!orderForm) {
+        console.error('Order form not found');
+        return;
+    }
 
     const productPrices = {
         'small-treats': 5.00,
@@ -20,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateCart() {
         // Clear the current items lists
         cartItemsList.innerHTML = '';
-        subcartItemsList.innerHTML = '';
+        if (subcartItemsList) subcartItemsList.innerHTML = '';
         let subtotal = 0;
     
         // Group items by id and sum their quantities and prices
@@ -46,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cartItemsList.appendChild(li);
     
             // If the item is not a delivery fee, add it to the subcart
-            if (id !== 'delivery') {
+            if (id !== 'delivery' && subcartItemsList) {
                 const subLi = li.cloneNode(true);
                 subcartItemsList.appendChild(subLi);
             }
@@ -58,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 0);
     
         // Update subtotal and total costs
-        subtotalCostSpan.textContent = subtotal.toFixed(2);
+        if (subtotalCostSpan) subtotalCostSpan.textContent = subtotal.toFixed(2);
         const totalCost = subtotal + (groupedItems['delivery'] ? groupedItems['delivery'].totalPrice : 0);
         totalCostSpan.textContent = totalCost.toFixed(2);
     }
@@ -89,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Additional variables for new form fields
-    const orderForm = document.getElementById('order-form');
     const customerNameInput = document.getElementById('customer-name');
     const customerPhoneInput = document.getElementById('customer-phone');
     const customerEmailInput = document.getElementById('customer-email');

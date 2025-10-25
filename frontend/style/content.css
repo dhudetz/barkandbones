@@ -25,6 +25,35 @@ p {
     font-size: 1.1em; /* 50% larger font size */
 }
 
+/* Larger fonts for browser screens (desktop/tablet) */
+@media (min-width: 768px) {
+    p {
+        font-size: 1.65em; /* 150% larger font size for browsers */
+    }
+    
+    h1 {
+        font-size: 2.25em; /* 150% larger than default h1 for browsers */
+    }
+    
+    h2 {
+        font-size: 2.0em; /* 150% larger than default h2 for browsers */
+    }
+    
+    h3, h4 {
+        font-size: 1.8em; /* 150% larger than default h3/h4 for browsers */
+    }
+    
+    /* All form elements */
+    label, input, select, textarea, button {
+        font-size: 1.5em; /* 150% larger for browsers */
+    }
+    
+    /* Navigation */
+    nav a {
+        font-size: 2.1em; /* 150% larger for browsers */
+    }
+}
+
 main {
     display: flex;
     width: 100%;
