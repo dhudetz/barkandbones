@@ -38,7 +38,6 @@
 }
 
 #order-type {
-    height: 40px; /* Adjust the height as needed */
     padding: 6px 10px; /* Adds padding inside the select box */
     font-size: 0.95em; /* Adjust the font size for better readability */
 }
