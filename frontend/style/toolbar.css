@@ -14,10 +14,10 @@ header {
 
 
 #logo {
-    height: 155px; /* 35% Larger logo size */
-    margin-bottom: 10px;
+    height: 124px; /* 20% smaller than 155px */
+    margin-bottom: 8px;
     margin-left: 15px;
-    margin-top: 15px;
+    margin-top: 12px;
     transition: transform 0.15s ease; /* Animation for logo */
 }
 
@@ -39,7 +39,7 @@ nav a {
     font-size: 1.4em;
     transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and transform transitions */
     display: inline-block; /* Allows transform to apply properly */
-    padding: 5px 15px;
+    padding: 4px 15px;
     line-height: 1.5em; /* Increase line height for better spacing between wrapped lines */
     border-radius: 8px;
 }
