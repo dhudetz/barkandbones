@@ -19,7 +19,7 @@ p {
     display: flex; /* Use flexbox to center the image within the container */
     justify-content: left; /* Center horizontally */
     align-items: center; /* Center vertically */
-    padding-inline: 20px;
+    padding-inline: 40px; /* 10% more than 20px */
     margin-top: 5px;
     margin-bottom: 5px;
     font-size: 1.1em; /* 50% larger font size */
